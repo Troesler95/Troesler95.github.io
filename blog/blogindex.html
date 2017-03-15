@@ -1,0 +1,60 @@
+---
+layout: default
+pagination:
+    enabled: false
+---
+
+<h1>Blog Home</h1>
+<hr />
+<h3>Discover My Adventures!</h3>
+
+<div id="articles-cont">
+    {% if paginator.total_pages > 0 %}
+        {% for post in paginator.posts %}
+        <div class="article">
+            <a href="{{post.url | relative_url | replace: '//', '/'}}" rel="bookmark"
+               title="Permanent link to {{site.baseurl}}/{{post.url}}">
+                <img src="{{post.img-url}}" alt="Article Picture">
+                <h1 class="article-title">{{post.title}}</h1>
+                <hr class="secondary"/>
+                <h3 class="secondary">
+                    Date: <time itemprop="dateCreated" datetime="{{post.date}}">{{post.date | date:"%b %d, %Y"}}</time>
+                </h3>
+            </a>
+            <p class="article-preview">
+                {{post.excerpt | strip_html}}
+                <a href="{{post.url | relative_url  | replace: '//', '/'}}" title="read more" class="more">Read More...</a>
+            </p>
+        </div>
+        {% endfor %}
+    {% else %}
+        <h2 class="secondary">Sorry, no posts yet!</h2>
+        <hr class="secondary">
+        <div class="about">
+            <p>
+                Sorry but I haven't completed the blog design and implementation yet!
+                This feature will be coming very soon! Thanks for visiting my site!
+            </p>
+        </div>
+    {% endif %}
+
+    <!-- PAGINATION LINKS -->
+    <div class="pagination">
+        {% if paginator.previous_page %}
+            {% if paginator.previous_page == 1%}
+                <p class="prevLink">
+                    <a href="{{site.baseurl}}/blog/index.html" class="previous">newer entries</a>
+                </p>
+            {% else %}
+                <p class="prevLink">
+                    <a href="{{site.baseurl}}/blog/page{{paginator.previous_page}}" class="previous">newer entries</a>
+                </p>
+            {% endif %}
+        {% endif %}
+        {% if paginator.next_page %}
+            <p class="nextLink">
+                <a href="{{site.baseurl}}/blog/page{{paginator.next_page}}" class="next">older entries</a>
+            </p>
+        {% endif %}
+    </div>
+</div>
