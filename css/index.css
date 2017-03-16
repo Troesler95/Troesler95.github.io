@@ -38,6 +38,7 @@ header {
     width: 100vw;
     height: 27.5vh;
     background: black url("/assets/code.jpeg") center no-repeat;
+    background-size: 100% 100%;
 
     -webkit-box-shadow: 1px 1px 2px #333;
     -moz-box-shadow: 1px 1px 2px #333;
@@ -49,8 +50,8 @@ header {
     position: relative;
     top: 12.5vh;
     left: 4px;
-    width: 11.5%;
-    height: 14rem;
+    width: 11.5vw;
+    height: 24.5vh;
     -webkit-border-radius: 5000px;
     -moz-border-radius: 5000px;
     border-radius: 5000px;
