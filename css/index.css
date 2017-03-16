@@ -43,20 +43,36 @@ header {
     box-shadow: 1px 1px 2px #333;
 }
 
+/* Initial position of element */
 #profile-image {
     display: block;
     position: relative;
     top: 12.5vh;
     left: 4px;
-    width: 11.5vw;
-    height: 24.5vh;
-    -webkit-border-radius: 5000px;
-    -moz-border-radius: 5000px;
-    border-radius: 5000px;
+}
 
+/* display the actual circle */
+#profile-image:before {
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+
+    /* fallback for older browsers */
+    width: 100%;
+    padding-bottom: 100%;
+    /* background picture */
     background: black url("/assets/profile.jpeg") center no-repeat;
     background-size: 100% 100%;
     border: 5px solid white;
+
+    /* actually display :before */
+    content: '';
+    display: block;
+
+    /* make it a circle */
+    padding-bottom: 0vw;
+    width: 11.5vw;
+    height: 11.5vw;
 }
 
 /*END HEAD STYLES*/
@@ -433,7 +449,6 @@ div.about-section:nth-of-type(1) {
 
 .right .about-icon {
     float: right !important;
-    /*margin-right: 7.5vw;*/
 }
 
 
