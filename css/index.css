@@ -30,9 +30,6 @@ a {
 
 header {
     display: block;
-    position: relative;
-    top: 0;
-    left: 0;
     width: 100vw;
     height: 27.5vh;
     background: black url("/assets/code.jpeg") center no-repeat;
@@ -47,7 +44,7 @@ header {
 #profile-image {
     display: block;
     position: relative;
-    top: 12.5vh;
+    top: 13.5vh;
     left: 4px;
 }
 
@@ -71,6 +68,8 @@ header {
 
     /* make it a circle */
     padding-bottom: 0vw;
+    min-height: 175px;
+    min-width: 175px;
     width: 11.5vw;
     height: 11.5vw;
 }
@@ -92,7 +91,7 @@ nav {
     display: block;
     width: 75%;
     height: 50%;
-    margin-top: 50%;
+    margin-top: 6vw;
     padding-left: 7.5%;
 }
 
@@ -346,7 +345,7 @@ footer {
 footer p {
     display: block;
     height: auto;
-    width: 22.5%;
+    width: 22.5vw;
     margin: auto;
     padding-top: 24px;
 
@@ -449,7 +448,6 @@ div.about-section:nth-of-type(1) {
 
 .right .about-icon {
     float: right !important;
-    
 }
 
 
