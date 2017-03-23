@@ -21,6 +21,8 @@ a {
     text-decoration: none;
     color: inherit;
 }
+
+p { text-align: justify; }
 /***************************************
 ****************************************
     STYLES FOR INDEX.HTML
