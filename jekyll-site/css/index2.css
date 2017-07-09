@@ -1,0 +1,276 @@
+/* CHANGE THESE */
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  font-size: 16px;
+  font-family: "Open Sans", Arial, sans-serif; }
+
+html, body {
+  overflow-x: hidden; }
+
+@media screen and (min-device-width: 64em) {
+  html, body {
+    display: block;
+    width: 100vw;
+    height: auto; } }
+ul {
+  list-style-type: none; }
+
+a {
+  text-decoration: none;
+  color: inherit; }
+
+/* CHANGE THESE */
+/*
+ * BORDER-RADIUS
+ * use: @include border-radius(radius);
+ */
+/*
+ * BOX SHADOW MIXIN
+ * use: @include box-shadow(offset(optional), hoff, voff, blurr, color);
+ */
+/*
+  USER SELECT MIXIN - prevent user from selecting (highlighting) the object
+  use: @include user-select(value);
+*/
+header {
+  display: block;
+  width: 100vw;
+  height: 90px;
+  background-color: #1976D2; }
+  header #header-title {
+    font-family: 'Playfair Display', 'Times New Roman', serif;
+    color: white;
+    font-size: 11.5vw;
+    letter-spacing: 0.03em;
+    padding-left: 5%;
+    padding-top: 4px; }
+    header #header-title small {
+      display: block;
+      font-style: italic;
+      position: relative;
+      top: -4px; }
+
+@media screen and (min-device-width: 64em) {
+  header {
+    display: block;
+    width: 100vw;
+    height: 27.5vh;
+    background: black url("/assets/code.jpeg") center no-repeat;
+    background-size: 100% 100%;
+    -webkit-box-shadow: 1px, 1px, 2px, #333;
+    -moz-box-shadow: 1px, 1px, 2px, #333;
+    box-shadow: 1px, 1px, 2px, #333; }
+
+  #header-title {
+    display: none; }
+
+  /* Initial position of element */
+  #profile-image {
+    display: block;
+    position: relative;
+    top: 13.5vh;
+    left: 4px; }
+
+  /* display the actual circle */
+  #profile-image:before {
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    /* fallback for older browsers */
+    width: 100%;
+    padding-bottom: 100%;
+    /* background picture */
+    background: black url("/assets/profile.jpeg") center no-repeat;
+    background-size: 100% 100%;
+    border: 5px solid white;
+    /* actually display :before */
+    content: '';
+    display: block;
+    /* make it a circle */
+    padding-bottom: 0vw;
+    min-height: 150px;
+    min-width: 150px;
+    width: 10vw;
+    height: 10vw; } }
+@media screen and (max-device-width: 50em) {
+  nav {
+    display: block;
+    width: 100vw;
+    height: 45px;
+    background-color: #2196F3; }
+    nav .down-arrow {
+      display: inline-block;
+      position: relative;
+      top: 10px;
+      left: 8px;
+      width: 0;
+      height: 0;
+      border-left: 11px solid transparent;
+      border-right: 11px solid transparent;
+      border-top: 11px solid #fff; }
+    nav .current_page {
+      width: 35vw;
+      height: 45px;
+      display: inline-block; }
+      nav .current_page p {
+        padding-top: 8px;
+        padding-left: 0.85vw;
+        font-size: 1.15em;
+        font-weight: bold; }
+    nav #nav-list {
+      display: block;
+      position: relative;
+      top: -9px;
+      width: 100vw;
+      height: 0;
+      padding-left: 10vw;
+      overflow: hidden;
+      z-index: 100;
+      background-color: #2a7ae2;
+      color: white;
+      -webkit-transition: height 250ms;
+      -moz-transition: height 250ms;
+      -ms-transition: height 250ms;
+      -o-transition: height 250ms;
+      transition: height 250ms; }
+      nav #nav-list.active {
+        height: 225px; }
+      nav #nav-list a.list-item {
+        display: block;
+        float: left;
+        width: 75%;
+        height: 45px;
+        position: static !important;
+        top: 0 !important; }
+        nav #nav-list a.list-item li {
+          display: block;
+          width: 75%;
+          margin: 8px 0; }
+        nav #nav-list a.list-item p {
+          font-weight: bold;
+          font-size: 1.15em; }
+    nav #collapse {
+      display: inline-block;
+      float: left;
+      clear: none;
+      height: 45px;
+      width: 45vw;
+      color: white; }
+      nav #collapse a {
+        display: inline-block;
+        height: 45px;
+        width: 10vw;
+        position: relative;
+        top: -10px; }
+    nav .connect-cont {
+      display: inline-block;
+      height: 45px;
+      float: left;
+      clear: none; }
+      nav .connect-cont .connect, nav .connect-cont ul p {
+        display: none; }
+      nav .connect-cont ul {
+        display: inline-block;
+        width: 55vw;
+        padding-top: 2px; }
+        nav .connect-cont ul li {
+          display: inline-block;
+          width: 10vw;
+          float: left;
+          clear: none;
+          margin-left: 1.5vw; }
+          nav .connect-cont ul li:first-of-type {
+            margin-left: 10vw; }
+          nav .connect-cont ul li a {
+            height: 85%;
+            width: 20px;
+            background-color: white;
+            -webkit-border-radius: 20px;
+            -moz-border-radius: 20px;
+            -ms-border-radius: 20px;
+            border-radius: 20px; }
+            nav .connect-cont ul li a .fa {
+              position: relative;
+              top: 4px; }
+          nav .connect-cont ul li .facebook {
+            color: #3b5998; }
+          nav .connect-cont ul li .linkedin {
+            color: #0077B5; }
+          nav .connect-cont ul li .google {
+            color: #df4a32; }
+
+  .title {
+    display: none; } }
+/* NAV BAR */
+@media screen and (min-device-width: 50em) {
+  .current_page {
+    display: none; }
+
+  nav {
+    display: inline-block;
+    float: left;
+    clear: none;
+    width: 12.5vw;
+    min-width: 170px;
+    height: 65vh;
+    border-right: 1px solid black; }
+    nav #nav-list {
+      display: block;
+      width: 75%;
+      height: 50%;
+      margin-top: 65px;
+      padding-left: 7.5%; }
+      nav #nav-list li {
+        display: block;
+        width: 100%;
+        height: 17.5%;
+        border-bottom: 2px solid #557CD4; }
+        nav #nav-list li p {
+          padding-top: 12px;
+          padding-left: 8px;
+          font-family: "Playfair Display", "Times New Roman", serif;
+          font-size: 1.3em; }
+
+  .connect-cont {
+    display: block;
+    width: 85%;
+    margin-top: 0.95rem;
+    margin-left: 7.5%; }
+
+  nav .connect {
+    font-family: "Playfair Display", "Times New Roman", serif;
+    font-style: italic;
+    font-size: 1.3vw;
+    color: #444;
+    padding-bottom: 4px; }
+
+  .social-list li {
+    display: block;
+    width: 100%;
+    padding: 5%; }
+
+  .social-list i {
+    display: inline;
+    width: auto;
+    font-size: 2.2vw; }
+
+  .facebook {
+    color: #3b5998; }
+
+  .linkedin {
+    color: #0077B5; }
+
+  .google {
+    color: #df4a32; }
+
+  .social-list p {
+    display: inline-block;
+    position: relative;
+    bottom: 5px;
+    width: auto;
+    padding-left: 5%;
+    font-size: 1.1vw; } }
+
+/*# sourceMappingURL=index2.css.map */

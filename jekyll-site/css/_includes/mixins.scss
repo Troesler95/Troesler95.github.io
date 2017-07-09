@@ -1,0 +1,33 @@
+@import 'global-vars';
+
+/*
+ * BORDER-RADIUS
+ * use: @include border-radius(radius);
+ */
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+
+/*
+ * BOX SHADOW MIXIN
+ * use: @include box-shadow(offset(optional), hoff, voff, blurr, color);
+ */
+@mixin box-shadow($args...) {
+  -webkit-box-shadow: $args;
+  -moz-box-shadow: $args;
+  box-shadow: $args;
+}
+
+/*
+  USER SELECT MIXIN - prevent user from selecting (highlighting) the object
+  use: @include user-select(value);
+*/
+@mixin user-select($value) {
+  -webkit-user-select: $value;
+  -moz-user-select: $value;
+  -ms-user-select: $value;
+  user-select: $value;
+}

@@ -1,0 +1,30 @@
+@import 'global-vars';
+
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  font-size: 16px;
+  font-family: "Open Sans", Arial, sans-serif;
+}
+
+html, body {
+  overflow-x: hidden;
+}
+
+@media screen and (min-device-width: $max-width-mlg) {
+  html, body {
+    display: block;
+    width: 100vw;
+    height: auto;
+  }
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
