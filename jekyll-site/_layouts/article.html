@@ -1,15 +1,43 @@
 ---
 layout: default
+comments: true
 ---
 <div class="full-article-title">
     <h1>{{page.title}}</h1>
     <hr/>
-    <h3>Author: {{site.author}}</h3>
-    <h3>Date: {{page.date}}</h3>
+    <h3>
+        Date: <time itemprop="dateCreated" datetime="{{post.date}}">{{page.date | date:"%b %d, %Y"}}</time>
+    </h3>
 </div>
 <div class="article-image">
-    <img src="{{page.image}}" alt="Article Picture">
+    <img src="{{page.image}}" alt=""/>
 </div>
 <div class="article-body">
 {{content}}
+</div>
+<div id="comments-section">
+    {% if page.comments %}
+        <div id="disqus_thread"></div>
+        <script>
+
+            /**
+             *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+             *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+             var PAGE_URL = "{{site.baseurl}}";
+             var PAGE_IDENTIFIER = "{{site.title}}";
+
+             var disqus_config = function () {
+             this.page.url = PAGE_URL;
+             this.page.identifier = PAGE_IDENTIFIER;
+             };
+
+            (function() { // DON'T EDIT BELOW THIS LINE
+                var d = document, s = d.createElement('script');
+                s.src = 'https://troesler95-github-io.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    {% endif %}
 </div>

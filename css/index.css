@@ -21,8 +21,6 @@ a {
     text-decoration: none;
     color: inherit;
 }
-
-p { text-align: justify; }
 /***************************************
 ****************************************
     STYLES FOR INDEX.HTML
@@ -289,7 +287,6 @@ hr.secondary {
 .card-bottom p {
     padding: 2.6vh 0;
     font-size: 0.95vw !important;
-    text-align: left !important;
 }
 
 .learn-more {

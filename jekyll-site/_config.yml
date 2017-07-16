@@ -22,6 +22,7 @@ baseurl: "" # the sumax-widthath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jekyllrb
 github_username:  Troesler95
+permalink: pretty
 
 # Build settings
 markdown: kramdown
@@ -36,5 +37,5 @@ exclude:
 pagination:
   enabled: true
   per_page: 5
-  permalink: "/blog/page:num/"
+  paginate_path: "/blog/page:num/"
   sort_reverse: true

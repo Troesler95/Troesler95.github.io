@@ -18,10 +18,11 @@ author: Tyler Roesler
 email: Troesler95@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
   Software Engineering student at SUNY Fredonia, graduating Fall 2017
-baseurl: "" # the subpath of your site, e.g. /blog
+baseurl: "" # the sumax-widthath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jekyllrb
 github_username:  Troesler95
+permalink: pretty
 
 # Build settings
 markdown: kramdown
@@ -29,11 +30,12 @@ theme: minima
 gems:
   - jekyll-feed
   - jekyll-paginate-v2
+#  - octopress-paginate
 exclude:
   - Gemfile
   - Gemfile.lock
 pagination:
   enabled: true
   per_page: 5
-  permalink: "/blog/page:num/"
+  paginate_path: "/blog/page:num/"
   sort_reverse: true

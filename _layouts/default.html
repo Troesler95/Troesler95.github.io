@@ -9,12 +9,16 @@
     <title>{% if page.title %}{{page.title}}
            {% else %}{{site.title}}{% endif %}</title>
     <link rel="canonical" href="{{site.baseurl}}{{page.url}}"/>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i|Playfair+Display:400,400i" rel="stylesheet">
-    <link rel="stylesheet" href="{{site.baseurl}}/css/index.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i|Playfair+Display:400,400i|Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="{{site.baseurl}}/css/index2.css">
+<!--
     <link rel="stylesheet" href="{{site.baseurl}}/css/prettify.css">
+-->
     <script src="https://use.fontawesome.com/cddcabe27c.js"></script>
     <!-- GOOGLE PRETTIFY SCRIPT -->
     <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=css&amp;skin=desert"></script>
+    <!-- GOOGLE JQUERY CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- Put line numbers on every line -->
     <style>
         li.L0, li.L1, li.L2, li.L3,
@@ -34,17 +38,21 @@
     <header>
         <!--<div id="hero-image"></div>-->
         <div id="profile-image"></div>
+        <h1 id="header-title">Tyler Roesler <small>Software Engineer</small></h1>
     </header>
     <!--END HEADER-->
     <!--NAV BAR-->
     <nav>
-        <ul id="nav-list">
-            <a href="/index.html"><li><p>HOME</p></li></a>
-            <a href="/about.html"><li><p>ABOUT</p></li></a>
-            <a href="/resume.html"><li><p>RESUME</p></li></a>
-            <a href="/projects/projecthome.html"><li><p>PROJECTS</p></li></a>
-            <a href="/blog/blogindex.html"><li><p>BLOG</p></li></a>
-        </ul>
+        <div id="collapse">
+            <a><div class="down-arrow"></div></a><div class="current_page"><p>{{page._name}}</p></div>
+            <ul id="nav-list">
+                <a class="list-item" href="/index.html"><li><p>HOME</p></li></a>
+                <a class="list-item" href="/about/index.html"><li><p>ABOUT</p></li></a>
+                <a class="list-item" href="/resume/index.html"><li><p>RESUME</p></li></a>
+                <a class="list-item" href="/projects/projecthome/index.html"><li><p>PROJECTS</p></li></a>
+                <a class="list-item" href="/blog/index.html"><li><p>BLOG</p></li></a>
+            </ul>
+        </div>
 
         <div class="connect-cont">
             <p class="connect">Connect:</p>
@@ -88,5 +96,12 @@
     <!--END CONTENT-->
     <!--FOOTER-->
     <footer><p>Tyler Roesler &bull; (727) 560-2857 &bull; Troesler95@gmail.com</p></footer>
+    <script>
+        $(document).ready(() => {
+            $('.down-arrow').on("click", ()=>{
+                $('#nav-list').toggleClass('active');
+            });
+        });
+    </script>
 </body>
 </html>
