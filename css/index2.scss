@@ -658,37 +658,45 @@ header {
     height: 100%;
 
     margin-top: 5%;
-  }
 
-  .article {
-    display: block;
-    width: 100%;
-    margin-top: 8vh;
-  }
+    .article {
+      display: block;
+      width: 100%;
+      margin-top: 8vh;
 
-  .article hr {
-    width: 100% !important;
-    margin: auto !important;
-    margin-bottom: 0.5rem !important;
-  }
+      .more {
+        display: block;
+        text-decoration: underline;
+      }
 
-  .article img {
-    display: inline-block;
-    float: right;
-    clear: none;
-    height: 100%;
-    width: 25%;
-    margin-left: 5%;
-  }
+      hr {
+        width: 100% !important;
+        margin: auto !important;
+        margin-bottom: 0.5rem !important;
+      }
 
-  .article h1.article-title {
-    font-size: 1.5vw;
-    padding-bottom: 2%;
-  }
+      img {
+        display: inline-block;
+        float: right;
+        clear: none;
+        height: 100%;
+        width: 25%;
+        margin-left: 5%;
+        margin-top: 2rem;
+      }
 
-  .article .article-preview {
-    margin-top: 2rem;
-    width: 68%;
+      h1.article-title {
+        font-size: 1.5vw;
+        padding-bottom: 2%;
+        width: 50%;
+        display: inline-block;
+      }
+
+      .article-preview {
+        margin-top: 2rem;
+        width: 68%;
+      }
+    }
   }
 }
 /***************************************
@@ -698,11 +706,38 @@ header {
 ****************************************/
 
 @media screen and (min-device-width: $max-width-med) {
-  .article-body p {
-    display: block;
-    padding: {
-      top: 15px;
-      bottom: 15px;
+  .article-image {
+    img {
+      margin: 1rem 0;
+    }
+  }
+
+  .article-body {
+    p {
+      display: block;
+      padding: {
+        top: 15px;
+        bottom: 15px;
+      }
+      font-size: 1.05em;
+      line-height: 1.75em;
+    }
+
+    figure.highlight {
+      margin: 15px 0;
+      padding: 5px;
+      @include border-radius(0.25em);
+      td.code {
+        pre {
+          padding-left: 2.5%;
+          span {
+            font-family: "Source Code Pro", sans-serif !important;
+          }
+        }
+      }
+      td.gutter {
+        padding-left: 1%;
+      }
     }
   }
 }

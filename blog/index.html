@@ -2,7 +2,7 @@
 layout: default
 _name: BLOG
 pagination:
-    enabled: false
+    enabled: true
 ---
 
 <h1>Blog Home</h1>
@@ -15,12 +15,12 @@ pagination:
         <div class="article">
             <a href="{{post.url | relative_url | replace: '//', '/'}}" rel="bookmark"
                title="Permanent link to {{site.baseurl}}/{{post.url}}">
-                <img src="{{post.img-url}}" alt="Article Picture">
                 <h1 class="article-title">{{post.title}}</h1>
                 <hr class="secondary"/>
                 <h3 class="secondary">
                     Date: <time itemprop="dateCreated" datetime="{{post.date}}">{{post.date | date:"%b %d, %Y"}}</time>
                 </h3>
+                <img src="{{site.images_path}}/{{post.profile_image}}" alt="Article Picture">
             </a>
             <p class="article-preview">
                 {{post.excerpt | strip_html}}

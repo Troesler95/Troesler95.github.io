@@ -23,6 +23,7 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jekyllrb
 github_username:  Troesler95
 permalink: pretty
+images_path: "/assets/blog"
 
 # Build settings
 markdown: kramdown

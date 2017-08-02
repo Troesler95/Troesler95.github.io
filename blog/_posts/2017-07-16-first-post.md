@@ -2,6 +2,7 @@
 layout: article
 title: First Test Post
 comments: true
+profile_image: "profile1.jpg"
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Qualem igitur hominem natura inchoavit? Quamquam haec quidem praeposita recte et reiecta dicere licebit. Qualem igitur hominem natura inchoavit? Nihil acciderat ei, quod nollet, nisi quod anulum, quo delectabatur, in mari abiecerat. Portenta haec esse dicit, neque ea ratione ullo modo posse vivi; Nihilne est in his rebus, quod dignum libero aut indignum esse ducamus? Sed tamen enitar et, si minus multa mihi occurrent, non fugiam ista popularia. Ita fit cum gravior, tum etiam splendidior oratio. Duo Reges: constructio interrete.
@@ -18,3 +19,62 @@ Hoc ipsum elegantius poni meliusque potuit. Aufert enim sensus actionemque tolli
 
 Apparet statim, quae sint officia, quae actiones. Utinam quidem dicerent alium alio beatiorem! Iam ruinas videres. Videmusne ut pueri ne verberibus quidem a contemplandis rebus perquirendisque deterreantur? Ergo et avarus erit, sed finite, et adulter, verum habebit modum, et luxuriosus eodem modo. Ut proverbia non nulla veriora sint quam vestra dogmata. Hic nihil fuit, quod quaereremus. Nam, ut sint illa vendibiliora, haec uberiora certe sunt. Item de contrariis, a quibus ad genera formasque generum venerunt. 
 
+{% highlight xml linenos=table %}
+<ListView Grid.Column="0" Grid.ColumnSpan="12"
+          Grid.Row="0"
+          ItemsSource="{Binding Source={StaticResource cvs}}"
+          BorderThickness="0">
+<ListBox.GroupStyle>
+    <GroupStyle>
+        <GroupStyle.HeaderTemplate>
+            <DataTemplate>
+                <Border HorizontalAlignment="Stretch"
+                        BorderBrush="Black" BorderThickness="0,0,0,1">
+                    <TextBlock FontSize="24" Text="{Binding Path=Name}"
+                               Foreground="Black" Margin="8,0,0,0"/>
+                </Border>
+            </DataTemplate>
+        </GroupStyle.HeaderTemplate>
+        <GroupStyle.ContainerStyle>
+            <Style TargetType="{x:Type GroupItem}">
+                <Setter Property="Background" Value="White" />
+                <Setter Property="Foreground" Value="White" />
+            </Style>
+        </GroupStyle.ContainerStyle>
+    </GroupStyle>
+</ListBox.GroupStyle>
+<ListView.ItemTemplate>
+    <DataTemplate>
+        <StackPanel Orientation="Horizontal">
+            <Image/>
+            <TextBlock Text="{Binding FullName}" Foreground="Black"/>
+        </StackPanel>
+    </DataTemplate>
+</ListView.ItemTemplate>
+</ListView>
+{% endhighlight %}
+
+{% highlight csharp lineno=table %}
+namespace ContactsApp.ViewModels
+{
+    class ContactListViewModel : ViewModelBase
+    {
+        private ObservableCollection<Contact> _contactList = null;
+    
+        public ContactListViewModel() : base()
+        {
+            _contactList = new ObservableCollection<Contact> {
+                new Contact("Bob Barker"),
+                new Contact("Joe Dentinger"),
+                new Contact("Alison Bjorker")
+            };
+        }
+    
+        public ObservableCollection<Contact> ContactList
+        {
+            get { return this._contactList; }
+            set { this._contactList = value; }
+        }
+    }
+}
+{% endhighlight %}
