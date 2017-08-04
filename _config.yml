@@ -30,14 +30,11 @@ markdown: kramdown
 theme: minima
 gems:
   - jekyll-feed
-  - jekyll-paginate-v2
-#  - octopress-paginate
+  - jekyll-paginate
 exclude:
   - Gemfile
   - Gemfile.lock
   - jekyll-site/*
-pagination:
-  enabled: true
-  per_page: 5
-  paginate_path: "/blog/page:num/"
-  sort_reverse: true
+paginate: 5
+paginate_path: "/blog/page:num/"
+sort_reverse: true
