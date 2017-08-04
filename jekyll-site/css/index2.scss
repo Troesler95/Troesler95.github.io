@@ -546,19 +546,20 @@ header {
   footer p {
     display: block;
     height: auto;
-    width: 27.5vw;
+    width: 75vw;
     margin: auto;
     padding-top: 24px;
 
     color: #777777;
     font-style: italic;
+    text-align: center;
   }
   /*END FOOTER STYLES*/
 }
 
 /*RESUME STYLES*/
 @media screen and (min-device-width: $max-width-med) {
-  iframe {
+  iframe.resume {
     display: block;
     width: 100%;
     height: auto;
