@@ -477,12 +477,11 @@ header {
   footer p {
     display: block;
     height: auto;
-    width: 75vw;
+    width: 27.5vw;
     margin: auto;
     padding-top: 24px;
     color: #777777;
-    font-style: italic; 
-    text-align: center; }
+    font-style: italic; }
 
   /*END FOOTER STYLES*/ }
 /*RESUME STYLES*/
