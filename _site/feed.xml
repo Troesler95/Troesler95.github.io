@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="http://jekyllrb.com" version="3.3.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-08-13T15:31:12-04:00</updated><id>http://localhost:4000/</id><title type="html">Tyler Roesler: Software Engineer</title><subtitle>Software Engineering student at SUNY Fredonia, graduating Fall 2017
+</subtitle><author><name>Tyler Roesler</name></author><entry><title type="html">Introduction to MVVM with WPF</title><link href="http://localhost:4000/jekyll-site/blog/2017/04/11/Intro-to-MVVM-with-WPF/" rel="alternate" type="text/html" title="Introduction to MVVM with WPF" /><published>2017-04-11T00:00:00-04:00</published><updated>2017-04-11T00:00:00-04:00</updated><id>http://localhost:4000/jekyll-site/blog/2017/04/11/Intro-to-MVVM-with-WPF</id><content type="html" xml:base="http://localhost:4000/jekyll-site/blog/2017/04/11/Intro-to-MVVM-with-WPF/">&lt;p&gt;During my internship this past summer I was given the opportunity to learn and explore a new (to me) technology
+and design architecture: Windows Presentation Foundation and the Model-View-ViewModel architecture. For those of 
+you who haven’t heard, WPF was Microsoft’s improvement on Windows Forms for developing Windows client applications. 
+One of the biggest complaints about WinForms was its lack of control over design and extensibility. WPF addresses these 
+issues with a completely new presentation layer based on XML called Extensible Application Markup Language or XAML; 
+but more on this later!&lt;/p&gt;
+
+&lt;p&gt;Previously I had only been familiar with the rock-star of the mv* world, Model-View-Controller. 
+If you’ve ever developed web applications I’m sure you’ve heard of MVC. Many popular web frameworks implement this architecture:
+Ruby on Rails, Django (for the most part), AngularJs, etc… MVC is much more robust than &lt;em&gt;just&lt;/em&gt; web, 
+but it works out well for separating front-end and back-end logic for simultaneous development by multiple teams of programmers.
+MVVM tackles these same problems except with even tighter decoupling of the view and model.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-components-of-mvvm&quot;&gt;The Components of MVVM&lt;/h2&gt;
+
+&lt;p&gt;As with all MV* architectures, MVVM is split into three separate categories of logic: Model, View, and ViewModel.&lt;/p&gt;
+
+&lt;h3 id=&quot;models&quot;&gt;Models&lt;/h3&gt;
+
+&lt;p&gt;Models are an easy concept to grasp. The simplest way to conceptualize them is as logical
+representation of your project’s &lt;em&gt;what&lt;/em&gt;. Understanding the ‘what’ and ‘why’ of an application is 
+very important to writing applications that matter. All too often we can get caught in the ‘how’s without knowing
+why we’re doing it to begin with! For example in a contacts application the model would be a Contact class.&lt;/p&gt;
+
+&lt;p&gt;Here’s a &lt;em&gt;very&lt;/em&gt; simple outline of such a class in C#:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Contact&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Contact&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;cm&quot;&gt;/*Default*/&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;cm&quot;&gt;/*Create a new contact here!*/&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    
+    &lt;span class=&quot;c1&quot;&gt;// In actual code, we wouldn't want these to be all string datatypes, 
+&lt;/span&gt;    &lt;span class=&quot;c1&quot;&gt;// but it works for illistrative purposes!
+&lt;/span&gt;    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Name&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Address&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;PhoneNumber&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h2 class=&quot;article-section&quot; id=&quot;why-choose-wpf-and-mvvm&quot;&gt;Why Choose WPF and MVVM?&lt;/h2&gt;
+
+&lt;p&gt;I’ve seen this question asked over and over on StackOverflow. The answer, as is the solution for most subjective
+questions, is: it depends! MVVM isn’t the end-all solution to all of your problems and neither are any of its
+MV* counterparts! Your choice of architecture is dependent on many factors, such as:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Development environment&lt;/li&gt;
+  &lt;li&gt;Team size&lt;/li&gt;
+  &lt;li&gt;Complexity of the application&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This of course is nowhere near an exhaustive list, but are among the most important!&lt;/p&gt;</content><author><name>Tyler Roesler</name></author><summary type="html">During my internship this past summer I was given the opportunity to learn and explore a new (to me) technology and design architecture: Windows Presentation Foundation and the Model-View-ViewModel architecture. For those of you who haven’t heard, WPF was Microsoft’s improvement on Windows Forms for developing Windows client applications. One of the biggest complaints about WinForms was its lack of control over design and extensibility. WPF addresses these issues with a completely new presentation layer based on XML called Extensible Application Markup Language or XAML; but more on this later!</summary></entry></feed>
