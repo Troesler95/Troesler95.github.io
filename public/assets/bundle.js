@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "assets/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 20);
+/******/ 	return __webpack_require__(__webpack_require__.s = 21);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -261,9 +261,9 @@ process.umask = function() { return 0; };
 /* WEBPACK VAR INJECTION */(function(process) {
 
 if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(22);
-} else {
   module.exports = __webpack_require__(23);
+} else {
+  module.exports = __webpack_require__(24);
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
@@ -788,7 +788,7 @@ var ContentHeader = function ContentHeader(_ref) {
         _react2.default.createElement(
             'small',
             null,
-            '(' + smallText + ')'
+            '(' + smallText.toLowerCase() + ')'
         ),
         children
     );
@@ -1050,7 +1050,7 @@ module.exports = shallowEqual;
  * 
  */
 
-var isTextNode = __webpack_require__(26);
+var isTextNode = __webpack_require__(27);
 
 /*eslint-disable no-bitwise */
 
@@ -1123,11 +1123,17 @@ module.exports = __webpack_require__.p + "media/wood-deck.jpeg";
 /* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(21);
-
+module.exports = __webpack_require__.p + "media/cappuccino.jpeg";
 
 /***/ }),
 /* 21 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(22);
+
+
+/***/ }),
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1137,7 +1143,7 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(24);
+var _reactDom = __webpack_require__(25);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -1145,13 +1151,13 @@ __webpack_require__(18);
 
 __webpack_require__(19);
 
-__webpack_require__(33);
+__webpack_require__(34);
 
 var _App = __webpack_require__(40);
 
 var _App2 = _interopRequireDefault(_App);
 
-var _registerServiceWorker = __webpack_require__(48);
+var _registerServiceWorker = __webpack_require__(49);
 
 var _registerServiceWorker2 = _interopRequireDefault(_registerServiceWorker);
 
@@ -1161,7 +1167,7 @@ _reactDom2.default.render(_react2.default.createElement(_App2.default, null), do
 (0, _registerServiceWorker2.default)();
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1189,7 +1195,7 @@ isValidElement:K,version:"16.2.0",__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_F
 
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2554,7 +2560,7 @@ module.exports = react;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2592,15 +2598,15 @@ if (process.env.NODE_ENV === 'production') {
   // DCE check should happen before ReactDOM bundle executes so that
   // DevTools can report bad minification during injection.
   checkDCE();
-  module.exports = __webpack_require__(25);
+  module.exports = __webpack_require__(26);
 } else {
-  module.exports = __webpack_require__(28);
+  module.exports = __webpack_require__(29);
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2836,7 +2842,7 @@ Z.injectIntoDevTools({findFiberByHostInstance:pb,bundleType:0,version:"16.2.0",r
 
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2851,7 +2857,7 @@ Z.injectIntoDevTools({findFiberByHostInstance:pb,bundleType:0,version:"16.2.0",r
  * @typechecks
  */
 
-var isNode = __webpack_require__(27);
+var isNode = __webpack_require__(28);
 
 /**
  * @param {*} object The object to check.
@@ -2864,7 +2870,7 @@ function isTextNode(object) {
 module.exports = isTextNode;
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2892,7 +2898,7 @@ function isNode(object) {
 module.exports = isNode;
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2926,8 +2932,8 @@ var containsNode = __webpack_require__(16);
 var focusNode = __webpack_require__(17);
 var emptyObject = __webpack_require__(7);
 var checkPropTypes = __webpack_require__(9);
-var hyphenateStyleName = __webpack_require__(29);
-var camelizeStyleName = __webpack_require__(31);
+var hyphenateStyleName = __webpack_require__(30);
+var camelizeStyleName = __webpack_require__(32);
 
 /**
  * WARNING: DO NOT manually require this module.
@@ -18294,7 +18300,7 @@ module.exports = reactDom;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18309,7 +18315,7 @@ module.exports = reactDom;
 
 
 
-var hyphenate = __webpack_require__(30);
+var hyphenate = __webpack_require__(31);
 
 var msPattern = /^ms-/;
 
@@ -18336,7 +18342,7 @@ function hyphenateStyleName(string) {
 module.exports = hyphenateStyleName;
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18372,7 +18378,7 @@ function hyphenate(string) {
 module.exports = hyphenate;
 
 /***/ }),
-/* 31 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18387,7 +18393,7 @@ module.exports = hyphenate;
 
 
 
-var camelize = __webpack_require__(32);
+var camelize = __webpack_require__(33);
 
 var msPattern = /^-ms-/;
 
@@ -18415,7 +18421,7 @@ function camelizeStyleName(string) {
 module.exports = camelizeStyleName;
 
 /***/ }),
-/* 32 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18450,13 +18456,13 @@ function camelize(string) {
 module.exports = camelize;
 
 /***/ }),
-/* 33 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(34);
+var content = __webpack_require__(35);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -18481,22 +18487,22 @@ if(false) {
 }
 
 /***/ }),
-/* 34 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var escape = __webpack_require__(35);
-exports = module.exports = __webpack_require__(36)(false);
+var escape = __webpack_require__(36);
+exports = module.exports = __webpack_require__(37)(false);
 // imports
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Quicksand:300,400,700);", ""]);
 
 // module
-exports.push([module.i, "/* App.scss\r\n * brings all the scss together into one file\r\n */\n/* http://meyerweb.com/eric/tools/css/reset/\r\n   v2.0 | 20110126\r\n   License: none (public domain)\r\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\n.ghost-btn {\n  display: inline-block;\n  outline: none;\n  text-align: center;\n  text-decoration: none;\n  font-family: inherit;\n  font-size: 0.9375em;\n  letter-spacing: 1px;\n  border: 1.5px solid white;\n  transition: all 0.35s ease;\n  -webkit-box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  box-sizing: border-box;\n  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);\n  color: white;\n  padding: 0.5375em 1.375em;\n  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)); }\n  .ghost-btn:hover {\n    background: linear-gradient(transparent, transparent) white;\n    color: black; }\n\n.content-section {\n  display: block;\n  width: 100vw;\n  height: 100vh;\n  overflow: hidden;\n  font-family: 'Quicksand', 'Helvetica', 'Arial', sans-serif; }\n  .content-section .content-header-cont {\n    display: block;\n    margin-top: 100px;\n    margin-bottom: 75px;\n    margin-left: auto;\n    margin-right: auto;\n    width: 90%;\n    height: auto; }\n    .content-section .content-header-cont h1.content-header {\n      display: block;\n      border-left: 4px solid white;\n      -webkit-border-radius: 1px;\n      -moz-border-radius: 1px;\n      border-radius: 1px;\n      padding-left: 0.5%;\n      padding-top: 2px;\n      padding-bottom: 2px;\n      font-size: 3.5em;\n      font-weight: 700; }\n    .content-section .content-header-cont small {\n      padding-top: 8px;\n      padding-left: 1%;\n      font-weight: 700;\n      font-size: 1.25em; }\n\n#meet-me {\n  background: linear-gradient(rgba(0, 0, 0, 0.35) 38%, transparent 65%), url(" + escape(__webpack_require__(18)) + ") no-repeat center center fixed;\n  -webkit-background-size: cover;\n  -moz-background-size: cover;\n  -o-background-size: cover;\n  background-size: cover;\n  font-weight: 300;\n  color: white;\n  text-align: center; }\n  #meet-me h1 {\n    position: relative;\n    top: 200px;\n    font-size: 4.5em; }\n    #meet-me h1 small {\n      display: block;\n      padding-top: 8px;\n      font-size: 28.65px;\n      font-size: 0.35em; }\n  #meet-me button {\n    position: relative;\n    top: 45vh;\n    margin: auto; }\n\n#about-me {\n  font-weight: normal;\n  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(" + escape(__webpack_require__(19)) + ") no-repeat center center fixed;\n  -webkit-background-size: cover;\n  -moz-background-size: cover;\n  -o-background-size: cover;\n  background-size: cover;\n  color: white;\n  text-align: center; }\n  #about-me .about-cont {\n    display: block;\n    height: auto;\n    width: 70%;\n    margin: 100px auto; }\n    #about-me .about-cont h1 {\n      font-size: 28.65px;\n      font-size: 2.15em;\n      padding: 25px 0; }\n    #about-me .about-cont b h1 {\n      font-weight: 700;\n      display: block; }\n\n#skills {\n  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(" + escape(__webpack_require__(37)) + ") no-repeat center center fixed;\n  -webkit-background-size: cover;\n  -moz-background-size: cover;\n  -o-background-size: cover;\n  background-size: cover;\n  font-weight: normal;\n  color: white; }\n  #skills #skills-cont {\n    display: -webkit-box;\n    display: -moz-box;\n    display: -ms-flexbox;\n    display: -webkit-flex;\n    display: flex;\n    -webkit-flex-flow: row nowrap;\n    flex-flow: row nowrap;\n    justify-content: space-around;\n    align-items: stretch; }\n    #skills #skills-cont .skills-section {\n      display: inline-block;\n      width: auto;\n      font-size: 1.75em;\n      line-height: 35px;\n      margin: 0 auto; }\n      #skills #skills-cont .skills-section:first-of-type {\n        margin-left: 5%; }\n      #skills #skills-cont .skills-section h4 {\n        font-weight: 700;\n        padding-bottom: 12px; }\n\nbody {\n  overflow-x: hidden; }\n\n#divider {\n  width: 100vw;\n  height: 25px;\n  background-color: white; }\n", ""]);
+exports.push([module.i, "/* App.scss\r\n * brings all the scss together into one file\r\n */\n/* http://meyerweb.com/eric/tools/css/reset/\r\n   v2.0 | 20110126\r\n   License: none (public domain)\r\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\n.ghost-btn {\n  display: inline-block;\n  outline: none;\n  text-align: center;\n  text-decoration: none;\n  font-family: inherit;\n  font-size: 0.9375em;\n  letter-spacing: 1px;\n  border: 1.5px solid white;\n  transition: all 0.35s ease;\n  -webkit-box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  box-sizing: border-box;\n  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);\n  color: white;\n  padding: 0.5375em 1.375em;\n  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)); }\n  .ghost-btn:hover {\n    background: linear-gradient(transparent, transparent) white;\n    color: black; }\n\n.content-section {\n  display: block;\n  width: 100vw;\n  height: 100vh;\n  overflow: hidden;\n  font-family: 'Quicksand', 'Helvetica', 'Arial', sans-serif; }\n  .content-section .content-header-cont {\n    display: block;\n    margin-top: 100px;\n    margin-bottom: 75px;\n    margin-left: auto;\n    margin-right: auto;\n    width: 90%;\n    height: auto; }\n    .content-section .content-header-cont h1.content-header {\n      display: block;\n      border-left: 4px solid white;\n      -webkit-border-radius: 1px;\n      -moz-border-radius: 1px;\n      border-radius: 1px;\n      padding-left: 0.5%;\n      padding-top: 2px;\n      padding-bottom: 2px;\n      font-size: 3.5em;\n      font-weight: 700; }\n    .content-section .content-header-cont small {\n      padding-top: 8px;\n      padding-left: 1%;\n      font-weight: 700;\n      font-size: 1.25em; }\n\n#meet-me {\n  background: linear-gradient(rgba(0, 0, 0, 0.35) 38%, transparent 65%), url(" + escape(__webpack_require__(18)) + ") no-repeat center center fixed;\n  -webkit-background-size: cover;\n  -moz-background-size: cover;\n  -o-background-size: cover;\n  background-size: cover;\n  font-weight: 300;\n  color: white;\n  text-align: center; }\n  #meet-me h1 {\n    position: relative;\n    top: 200px;\n    font-size: 4.5em; }\n    #meet-me h1 small {\n      display: block;\n      padding-top: 8px;\n      font-size: 28.65px;\n      font-size: 0.35em; }\n  #meet-me button {\n    position: relative;\n    top: 45vh;\n    margin: auto; }\n\n#about-me {\n  font-weight: normal;\n  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(" + escape(__webpack_require__(19)) + ") no-repeat center center fixed;\n  -webkit-background-size: cover;\n  -moz-background-size: cover;\n  -o-background-size: cover;\n  background-size: cover;\n  color: white;\n  text-align: center; }\n  #about-me .about-cont {\n    display: block;\n    height: auto;\n    width: 70%;\n    margin: 100px auto; }\n    #about-me .about-cont h1 {\n      font-size: 28.65px;\n      font-size: 2.15em;\n      padding: 25px 0; }\n    #about-me .about-cont b h1 {\n      font-weight: 700;\n      display: block; }\n\n#skills {\n  background: -webkit-linear-gradient(to right, rgba(33, 147, 176, 0.75) 45%, rgba(109, 213, 237, 0)), url(" + escape(__webpack_require__(20)) + ") no-repeat center center fixed;\n  background: linear-gradient(to right, rgba(33, 147, 176, 0.75) 45%, rgba(109, 213, 237, 0)), url(" + escape(__webpack_require__(20)) + ") no-repeat center center fixed;\n  -webkit-background-size: cover;\n  -moz-background-size: cover;\n  -o-background-size: cover;\n  background-size: cover;\n  font-weight: normal;\n  color: white; }\n  #skills #skills-cont {\n    display: -webkit-box;\n    display: -moz-box;\n    display: -ms-flexbox;\n    display: -webkit-flex;\n    display: flex;\n    -webkit-flex-flow: row nowrap;\n    flex-flow: row nowrap;\n    justify-content: space-around;\n    align-items: stretch; }\n    #skills #skills-cont .skills-section {\n      display: inline-block;\n      width: auto;\n      font-size: 1.75em;\n      line-height: 35px;\n      margin: 0 auto; }\n      #skills #skills-cont .skills-section:first-of-type {\n        margin-left: 5%; }\n      #skills #skills-cont .skills-section h4 {\n        font-weight: 700;\n        padding-bottom: 12px; }\n\nbody {\n  overflow-x: hidden; }\n\n#divider {\n  width: 100vw;\n  height: 25px;\n  background-color: white; }\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 35 */
+/* 36 */
 /***/ (function(module, exports) {
 
 module.exports = function escape(url) {
@@ -18515,7 +18521,7 @@ module.exports = function escape(url) {
 
 
 /***/ }),
-/* 36 */
+/* 37 */
 /***/ (function(module, exports) {
 
 /*
@@ -18595,12 +18601,6 @@ function toComment(sourceMap) {
 	return '/*# ' + data + ' */';
 }
 
-
-/***/ }),
-/* 37 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "media/cappuccino.jpeg";
 
 /***/ }),
 /* 38 */
@@ -19102,7 +19102,7 @@ var _MyExperiences = __webpack_require__(46);
 
 var _MyExperiences2 = _interopRequireDefault(_MyExperiences);
 
-var _MyProjects = __webpack_require__(47);
+var _MyProjects = __webpack_require__(48);
 
 var _MyProjects2 = _interopRequireDefault(_MyProjects);
 
@@ -20009,6 +20009,10 @@ var _ContentHeader = __webpack_require__(11);
 
 var _ContentHeader2 = _interopRequireDefault(_ContentHeader);
 
+var _experiences = __webpack_require__(47);
+
+var _experiences2 = _interopRequireDefault(_experiences);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -20024,11 +20028,41 @@ var Experience = function Experience(_ref) {
         { className: 'experience-block' },
         _react2.default.createElement(
             'section',
-            null,
+            { className: 'description' },
             _react2.default.createElement(
                 'h1',
                 null,
-                experienceObj.company
+                experienceObj["title"]
+            ),
+            _react2.default.createElement(
+                'p',
+                { className: 'company-name' },
+                experienceObj["company"]
+            ),
+            _react2.default.createElement(
+                'p',
+                { className: 'location' },
+                experienceObj["location"]
+            ),
+            _react2.default.createElement(
+                'p',
+                { className: 'duration' },
+                experienceObj["duration"]
+            )
+        ),
+        _react2.default.createElement(
+            'section',
+            { className: 'bullet-points' },
+            _react2.default.createElement(
+                'ul',
+                null,
+                experienceObj["bullet-points"].map(function (point, i) {
+                    return _react2.default.createElement(
+                        'li',
+                        { className: 'bullet', key: i },
+                        point
+                    );
+                })
             )
         )
     );
@@ -20044,20 +20078,22 @@ var MyExperiences = function (_React$Component) {
     }
 
     _createClass(MyExperiences, [{
-        key: 'getExperienceFromJSON',
-        value: function getExperienceFromJSON() {
-            var xmlObj = new XMLHttpRequest();
-            xmlObj.overrideMimeType("application/json");
-            xmlObj.open('GET', './ComponentData/experience.json', true);
-        }
-    }, {
         key: 'render',
         value: function render() {
-            var experienceArr = this.getExperienceFromJSON();
             return _react2.default.createElement(
-                'div',
-                { id: 'experiences' },
-                _react2.default.createElement('div', { id: 'experience-carousel' })
+                _ContentSection2.default,
+                { id: 'experience' },
+                _react2.default.createElement(_ContentHeader2.default, { headerText: "What I've Done",
+                    smallText: "my building blocks"
+                }),
+                _react2.default.createElement(
+                    'div',
+                    { id: 'experience-carousel' },
+                    console.log(Array.isArray(_experiences2.default)),
+                    _experiences2.default.map(function (exp, i) {
+                        return _react2.default.createElement(Experience, { experienceObj: exp, key: i });
+                    })
+                )
             );
         }
     }]);
@@ -20069,6 +20105,12 @@ exports.default = MyExperiences;
 
 /***/ }),
 /* 47 */
+/***/ (function(module, exports) {
+
+module.exports = [{"company":"Ortho Clinical Diagnostics","title":"Prototype Applications Developer Intern","location":"Rochester, NY","duration":"Summer 2017","bullet-points":["Developed a client-server software system between a Windows PC and Raspberry Pi micro-controller","Wrote the client application in C#.NET and WPF closely following the MVVM software architecture","Researched and implemented several Bayer-format image demosaicing techniques in MATLAB to determine its effect on image processing"]},{"company":"The State University of New York at Fredonia","title":"Teacher's Assistant/Student Lab Assistant","location":"Fredonia, NY","duration":"Aug-May 2017","bullet-points":["Aide the professor in giving meaningful feedback to students through code reviews and office hours","Profess courses in the absence of the professor","Hold responsibility for the successful operation of the Computer Science lab","Help students complete coursework, assignments, or any other technology related questions they might have"]}]
+
+/***/ }),
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20130,7 +20172,7 @@ var MyProjects = function (_React$Component) {
 exports.default = MyProjects;
 
 /***/ }),
-/* 48 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

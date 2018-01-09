@@ -6,7 +6,7 @@ const ContentHeader = ({headerText, smallText, children}) => (
         <h1 className="content-header">
             {headerText.toUpperCase()}
         </h1>
-        <small>{'(' + smallText + ')'}</small>
+        <small>{'(' + smallText.toLowerCase() + ')'}</small>
         {children}
     </div>
 );

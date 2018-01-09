@@ -1,0 +1,26 @@
+#about-me {
+  font-weight: normal;
+  @include darkenBackgroundImage("../media/wood-deck.jpeg", 0.60, 0.60);
+
+  color: white;
+  text-align: center;
+
+  .about-cont {
+    display: block;
+    height: auto;
+    width: 70%;
+    margin: 100px auto;
+
+    h1 {
+      font-size: 28.65px;
+      font-size: 2.15em;
+
+      padding: 25px 0;
+    }
+
+    b h1 {
+      font-weight: 700;
+      display: block;
+    }
+  }
+}

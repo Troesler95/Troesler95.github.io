@@ -1,0 +1,31 @@
+#meet-me {
+  background: linear-gradient(rgba(0, 0, 0, 0.35) 38%, transparent 65%),
+  url("../media/starry-night.jpeg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+  font-weight: 300;
+  color: white;
+  text-align: center;
+
+  h1 {
+    position: relative;
+    top: 200px;
+    font-size: 4.5em;
+
+    small {
+      display: block;
+      padding-top: 8px;
+      font-size: 28.65px;
+      font-size: 0.35em;
+    }
+  }
+
+  button {
+    position: relative;
+    top: 45vh;
+    margin: auto;
+  }
+}
