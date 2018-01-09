@@ -1,19 +1,24 @@
 import React, { Component } from 'react';
-import ContentSection from './Components/ContentSection';
-//import Logo from './logo.svg';
-import './App.css';
+import MeetMe from './Components/MeetMe';
+import AboutMe from './Components/AboutMe';
+import MySkills from './Components/MySkills';
+import MyExperiences from './Components/MyExperiences';
+import MyProjects from './Components/MyProjects';
 
 class App extends Component {
   render() {
     return (
-        <ContentSection className="content-section meet-me">
-            <h1>
-                Hello, I'm Tyler Roesler
-                <small>software developer | technology enthusiast | coffee lover</small>
-            </h1>
-            {/*TODO: Replace this with react-router Link!*/}
-            <h4><a>learn more</a></h4>
-        </ContentSection>
+        <div>
+            <MeetMe/>
+            <br id="divider" />
+            <AboutMe/>
+            <br id="divider" />
+            <MySkills />
+            <br id="divider" />
+            <MyExperiences />
+            <br id="divider" />
+            <MyProjects />
+        </div>
     );
   }
 }

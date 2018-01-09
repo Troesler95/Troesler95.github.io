@@ -1,0 +1,45 @@
+[
+  {
+    "name": "Feedback Control Systems for Autonomous Flight Tasks with Drones",
+    "description": "Learned about feedback control systems and how they are applied to autonomous drones. Learning was supplemented using MIT's 16.30 Feedback Control Systems online course and the PARROT Rolling Spyder drone",
+    "skills": [
+      "MATLAB and Simulink",
+      "Embedded C",
+      "Image Processing"
+    ],
+    "thumbnail-url": ""
+  },
+  {
+    "name": "Artificial Intelligence Maze Solving Application",
+    "description": "A configurable maze solving CLI application written in C++. This was developed as an assignment for my course in artificial intelligence and was used to explore the concept of search heuristics.",
+    "skills": [
+      "C++",
+      "CLI Menus",
+      "Search Heuristics",
+      "File I/O"
+    ],
+    "thumbnail-url": ""
+  },
+  {
+    "name": "Traffic Sign Recognition System",
+    "description": "This basic application segments traffic signs from driving scenery and classifies them. This was a final project for my computer vision and machine learning course. This system will likely be updated in the future!",
+    "skills": [
+      "Python",
+      "Machine learning",
+      "Neural Networks with Keras"
+    ],
+    "thumbnail-url": ""
+  },
+  {
+    "name": "BookOrder Web Application",
+    "description": "This web application was in response to a real need on campus for a web portal that allows teachers to submit new books for the coming semester. Though the application never went live, it was a great opportunity for the team to conduct interviews and gather requirements to create a successful product.",
+    "skills": [
+      "Ruby on Rails",
+      "SQL",
+      "jQuery",
+      "HTML/CSS",
+      "User accounts and authentication"
+    ],
+    "thumbnail-url": ""
+  }
+]
