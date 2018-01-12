@@ -1,16 +1,16 @@
-var WebPack = require('webpack');
+var webpack = require('webpack');
 var path = require('path');
 
 module.exports = {
+    context: path.resolve(__dirname, 'src'),
     entry: [
-        './src/index.js'
+        './index.js'
     ],
     output: {
         filename: 'bundle.js',
         path: path.resolve(__dirname, 'public/assets/'),
-        publicPath: "assets/"
+        publicPath: "assets/",
     },
-    devtool: 'source-map',
     module: {
         rules: [
             // use babel-loader on .js and .jsx files
@@ -24,13 +24,10 @@ module.exports = {
             },
             //to support eg. background-image property
             {
-                test: /\.(jpe?g|png|gif)$/i,
+                test: /\.(pdf|jpe?g|png|gif)$/i,
                 loader:"file-loader",
                 query:{
-                    name:'[name].[ext]',
-                    outputPath:'media/'
-                    //the images will be emmited to public/assets/images/ folder
-                    //the images will be put in the DOM <style> tag as eg. background: url(assets/images/image.png);
+                    name:'[path][name].[ext]'
                 }
             },
             //to support @font-face rule
@@ -38,12 +35,36 @@ module.exports = {
                 test: /\.(woff(2)?|ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
                 loader: "url-loader",
                 query: {
-                    limit: '10000',
+                    limit: 10*1024, // limit to 10kB
                     name: '[name].[ext]',
                     outputPath: 'fonts/'
                     //the fonts will be emmited to public/assets/fonts/ folder
                     //the fonts will be put in the DOM <style> tag as eg. @font-face{ src:url(assets/fonts/font.ttf); }
                 }
+            },
+            // optimize images before being passed to the file loader
+            {
+                test: /\.(gif|png|jpe?g|svg)$/i,
+                use: [
+                    {
+                        loader: 'image-webpack-loader',
+                        options: {
+                            optipng: {
+                                optimizationLevel: 7
+                            },
+                            pngquant: {
+                                quality: '65-90',
+                                speed: 8
+                            },
+                            mozjpeg: {
+                                progressive: true,
+                                quality: 60,
+                                bypassOnDebug: false
+                            }
+                        }
+                    }
+                ],
+                enforce: 'pre'
             },
             // include css files in bundles
             {
@@ -59,20 +80,12 @@ module.exports = {
                 test: /\.scss$/,
                 use: [
                     // creates style nodes from JS strings
-                    {
-                        loader: "style-loader"
-                    },
+                    "style-loader",
                     // translates CSS into CommonJS
-                    {
-                        loader: "css-loader"
-                    },
+                    "css-loader",
                     // compiles Sass to CSS
-                    {
-                        loader: "sass-loader"
-                    },
-                    {
-                        "loader" : "autoprefixer-loader"
-                    }
+                    "sass-loader",
+                    "autoprefixer-loader"
                 ]
             },
             // include SVG images
@@ -92,6 +105,17 @@ module.exports = {
             }
         ]
     },
+    plugins: [
+        new webpack.DefinePlugin({ // <-- key to reducing React's size
+            'process.env': {
+                'NODE_ENV': JSON.stringify('production')
+            }
+        }),
+        new webpack.optimize.UglifyJsPlugin({
+            sourceMap: true
+        }), //minify everything
+        new webpack.optimize.AggressiveMergingPlugin(),//Merge chunks
+    ],
     // resolve file both JavaScript and JSX files
     resolve: {
         extensions: ['.js', '.jsx']

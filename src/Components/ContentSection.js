@@ -1,10 +1,10 @@
-import React from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
 /** ContentSection Component
  * This is a basic class to house content
  */
-export class ContentSection extends React.Component {
+export class ContentSection extends Component {
     render() {
         let {className, id, children} = this.props;
         return (

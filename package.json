@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fortawesome/fontawesome": "^1.1.2",
+    "@fortawesome/fontawesome-free-solid": "^5.0.4",
+    "@fortawesome/react-fontawesome": "0.0.17",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
@@ -21,12 +24,14 @@
     "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.8",
     "file-loader": "^1.1.6",
+    "image-webpack-loader": "^3.4.2",
     "node-sass": "^4.7.2",
     "react-svg-loader": "^2.1.0",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.19.1",
     "url-loader": "^0.6.2",
     "webpack": "^3.10.0",
+    "webpack-bundle-analyzer": "^2.9.2",
     "webpack-css-loaders": "^1.0.0"
   }
 }

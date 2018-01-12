@@ -1,5 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types'
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import ContentSection from './ContentSection';
 import ContentHeader from './ContentHeader';
 
@@ -28,7 +28,7 @@ SkillsSection.propTypes = {
     }
 };
 
-class MySkills extends React.Component {
+class MySkills extends Component {
     render() {
         return (
             <ContentSection id="skills">

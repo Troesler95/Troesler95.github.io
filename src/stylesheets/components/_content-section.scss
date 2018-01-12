@@ -3,13 +3,14 @@
   width: 100vw;
   height: 100vh;
   overflow: hidden;
+  position: relative;
 
   font-family: 'Quicksand', 'Helvetica', 'Arial', sans-serif;
 
   .content-header-cont {
     display: block;
     margin: {
-      top: 100px; bottom: 75px;
+      top: 100px; bottom: 100px;
       left: auto; right: auto;
     }
     width: 90%;
@@ -37,6 +38,11 @@
       }
       font-weight: 700;
       font-size: 1.25em;
+    }
+    .resume-btn {
+      position: relative;
+      top: -8vh;
+      float: right;
     }
   }
 }
