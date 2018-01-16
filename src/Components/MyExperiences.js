@@ -42,13 +42,13 @@ class MyExperiences extends Component {
     nextExperience() {
         this.setState({
             currentExpNum: (this.state.currentExpNum !== this.state.experiences.length)
-                ? this.state.currentExpNum += 1 : this.state.currentExpNum = 1
+                ? (this.state.currentExpNum + 1) : 1
         });
     }
     previousExperience() {
         this.setState({
             currentExpNum: (1 === this.state.currentExpNum)
-                ? this.state.currentExpNum = this.state.experiences.length : this.state.currentExpNum -= 1
+                ? this.state.experiences.length : (this.state.currentExpNum - 1)
         });
     }
     render() {
