@@ -1,5 +1,6 @@
 var webpack = require('webpack');
 var path = require('path');
+var NODE_ENV = JSON.stringify("development");
 
 module.exports = {
     context: path.resolve(__dirname, 'src'),
@@ -108,11 +109,12 @@ module.exports = {
     plugins: [
         new webpack.DefinePlugin({ // <-- key to reducing React's size
             'process.env': {
-                'NODE_ENV': JSON.stringify('production')
+                'NODE_ENV': NODE_ENV
             }
         }),
         new webpack.optimize.UglifyJsPlugin({
-            sourceMap: true
+            // only use source map if in development environment
+            sourceMap: (NODE_ENV === JSON.stringify("development"))
         }), //minify everything
         new webpack.optimize.AggressiveMergingPlugin(),//Merge chunks
     ],
