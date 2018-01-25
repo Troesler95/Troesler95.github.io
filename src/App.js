@@ -6,21 +6,21 @@ import MyExperiences from './Components/MyExperiences';
 import MyProjects from './Components/MyProjects';
 
 class App extends Component {
-  render() {
-    return (
-        [
-            <MeetMe/>,
-            <br id="divider" />,
-            <AboutMe/>,
-            <br id="divider" />,
-            <MySkills />,
-            <br id="divider" />,
-            <MyExperiences />,
-            <br id="divider" />,
-            <MyProjects />
-        ]
-    );
-  }
+    render() {
+        return (
+            [
+                <MeetMe/>,
+                <br id="divider" />,
+                <AboutMe/>,
+                <br id="divider" />,
+                <MySkills />,
+                <br id="divider" />,
+                <MyExperiences />,
+                <br id="divider" />,
+                <MyProjects />
+            ].map((item, index) => React.cloneElement(item, {key: index})) // satisfy need for key in array of elements
+        );
+    }
 }
 
 export default App;

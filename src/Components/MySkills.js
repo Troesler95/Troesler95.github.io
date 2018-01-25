@@ -28,52 +28,50 @@ SkillsSection.propTypes = {
     }
 };
 
-class MySkills extends Component {
-    render() {
-        return (
-            <ContentSection id="skills">
-                <ContentHeader headerText="My Weapons of Choice"
-                                smallText="besides coffee"/>
-                <div id="skills-cont">
-                    <SkillsSection head="Languages"
-                                   contentArray={[
-                                        "C/C++",
-                                        "C#.NET",
-                                        "Pyton",
-                                        "MATLAB",
-                                        "Ruby"
-                                   ]}
-                    />
-                    <SkillsSection head="Web"
-                                   contentArray={[
-                                        "HTML5",
-                                        "CSS/SCSS",
-                                        "JavaScript",
-                                        "Ruby on Rails",
-                                        "PHP",
-                                        "SQL"]}
-                    />
-                    <SkillsSection head="Development Technologies"
-                                   contentArray={[
-                                       "Git/GitHub",
-                                       "WPF and UWP",
-                                       "React.Js"
-                                   ]}
-                    />
-                    <SkillsSection head="Concepts"
-                                   contentArray={[
-                                       "OOP",
-                                       "Software architectures",
-                                       "Software development processes",
-                                       "Multi-threaded programming",
-                                       "UI and UX design principles",
-                                       "AI and machine learning"
-                                    ]}
-                    />
-                </div>
-            </ContentSection>
-        );
-    }
-}
+const MySkills = () => (
+    <ContentSection id="skills">
+        <ContentHeader headerText="My Weapons of Choice"
+                        smallText="besides coffee"/>
+        <div id="skills-cont">
+            <SkillsSection head="Languages"
+                           contentArray={[
+                                "C/C++",
+                                "C#.NET",
+                                "Pyton",
+                                "MATLAB",
+                                "Ruby"
+                           ]}
+            />
+            <SkillsSection head="Web"
+                           contentArray={[
+                                "HTML5",
+                                "CSS/SCSS",
+                                "JavaScript",
+                                "Ruby on Rails",
+                                "PHP",
+                                "SQL"]}
+            />
+            <SkillsSection head="Development Technologies"
+                           contentArray={[
+                               "Git/GitHub",
+                               "WPF and UWP",
+                               "React.Js",
+                               "Microsoft Visual Studio",
+                               "Jetbrains IDEs"
+                           ]}
+            />
+            <SkillsSection head="Concepts"
+                           contentArray={[
+                               "OOP",
+                               "Software architectures",
+                               "Software development processes",
+                               "Multi-threaded programming",
+                               "UI and UX design principles",
+                               "AI and machine learning"
+                            ]}
+            />
+        </div>
+    </ContentSection>
+);
 
 export default MySkills;

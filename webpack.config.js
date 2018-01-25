@@ -1,6 +1,6 @@
 var webpack = require('webpack');
 var path = require('path');
-var NODE_ENV = JSON.stringify("development");
+var NODE_ENV = "development";
 
 module.exports = {
     context: path.resolve(__dirname, 'src'),
@@ -10,8 +10,9 @@ module.exports = {
     output: {
         filename: 'bundle.js',
         path: path.resolve(__dirname, 'public/assets/'),
-        publicPath: "assets/",
+        publicPath: "/PersonalSite/public/assets/",
     },
+    devtool: (NODE_ENV === "development") ? "inline-source-map" : false,
     module: {
         rules: [
             // use babel-loader on .js and .jsx files
@@ -23,24 +24,14 @@ module.exports = {
                     presets: ['env', 'react']
                 }
             },
-            //to support eg. background-image property
+            //to support @font-face rule and url() support
             {
                 test: /\.(pdf|jpe?g|png|gif)$/i,
-                loader:"file-loader",
-                query:{
-                    name:'[path][name].[ext]'
-                }
-            },
-            //to support @font-face rule
-            {
-                test: /\.(woff(2)?|ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
                 loader: "url-loader",
-                query: {
-                    limit: 10*1024, // limit to 10kB
-                    name: '[name].[ext]',
-                    outputPath: 'fonts/'
-                    //the fonts will be emmited to public/assets/fonts/ folder
-                    //the fonts will be put in the DOM <style> tag as eg. @font-face{ src:url(assets/fonts/font.ttf); }
+                options: {
+                    limit: 2*1024, // limit to 2kB
+                    name: '[path][name].[ext]',
+                    fallback: "file-loader"
                 }
             },
             // optimize images before being passed to the file loader
@@ -73,7 +64,7 @@ module.exports = {
                 use: [
                     'style-loader',
                     'css-loader',
-                    'autoprefixer-loader'
+                    //'autoprefixer-loader' <= no Webpack 4 support
                 ]
             },
             // include scss files in bundles
@@ -86,7 +77,7 @@ module.exports = {
                     "css-loader",
                     // compiles Sass to CSS
                     "sass-loader",
-                    "autoprefixer-loader"
+                    //"autoprefixer-loader" <= no Webpack 4 support
                 ]
             },
             // include SVG images
@@ -106,18 +97,7 @@ module.exports = {
             }
         ]
     },
-    plugins: [
-        new webpack.DefinePlugin({ // <-- key to reducing React's size
-            'process.env': {
-                'NODE_ENV': NODE_ENV
-            }
-        }),
-        new webpack.optimize.UglifyJsPlugin({
-            // only use source map if in development environment
-            sourceMap: (NODE_ENV === JSON.stringify("development"))
-        }), //minify everything
-        new webpack.optimize.AggressiveMergingPlugin(),//Merge chunks
-    ],
+    mode: NODE_ENV,
     // resolve file both JavaScript and JSX files
     resolve: {
         extensions: ['.js', '.jsx']

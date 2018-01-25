@@ -5,22 +5,30 @@
   color: white;
   text-align: center;
 
-  .about-cont {
-    display: block;
-    height: auto;
-    width: 70%;
-    margin: 100px auto;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-evenly;
 
-    h1 {
-      font-size: 28.65px;
-      font-size: 2.3vw;
+  div {
+    padding: 1rem;
 
-      padding: 25px 0;
+    p {
+      font-size: 4.5vw;
+
+      a {
+        color: white;
+        text-decoration: underline;
+        
+        &:hover {
+          cursor: pointer;
+        }
+      }
     }
 
-    b h1 {
-      font-weight: 700;
-      display: block;
+    @media (min-width: 768px) {
+      p {
+        font-size: 2.33vw;
+      }
     }
   }
 }

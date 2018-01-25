@@ -1,13 +1,25 @@
 import React from 'react';
 import ContentSection from "./ContentSection";
+import Row from 'react-bootstrap/lib/Row';
+import Col from 'react-bootstrap/lib/Col';
 
 const MeetMe = () => (
     <ContentSection id="meet-me">
-        <h1>
-            Hello, I'm Tyler Roesler
-            <small>software developer | technology enthusiast | coffee lover</small>
-        </h1>
-        <button className="ghost-btn">learn more</button>
+        <Row>
+            <Col xs={12}>
+                <h1>
+                    <Row><Col xs={12} smallHidden={true} mdHidden={true} lgHidden={true}>Hello, I'm </Col></Row>
+                    <Col xsHidden={true}>Hello, I'm </Col>
+                    Tyler Roesler
+                </h1>
+                <small>software developer | technology enthusiast | coffee lover</small>
+            </Col>
+        </Row>
+        <Row>
+            <Col xs={12}>
+                <button className="ghost-btn">learn more</button>
+            </Col>
+        </Row>
     </ContentSection>
 );
 

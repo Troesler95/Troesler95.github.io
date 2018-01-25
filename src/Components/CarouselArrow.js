@@ -14,15 +14,7 @@ const CarousalArrow = ({arrowType, onClick}) => (
 );
 
 CarousalArrow.propTypes = {
-    arrowType: (function (props) {
-        if(props.arrowType.toLowerCase() === "left"
-            || props.arrowType.toLowerCase() === "right") {
-            return null;
-        } else {
-            return new Error("CarousalArrow: ERROR. arrowType should be one of either "
-            + "left or right");
-        }
-    }).isRequired,
+    arrowType: PropTypes.oneOf(["left", "right"]).isRequired,
     onClick: PropTypes.func.isRequired
 };
 

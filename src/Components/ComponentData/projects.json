@@ -7,7 +7,8 @@
       "Embedded C",
       "Image Processing"
     ],
-    "thumbnail-url": ""
+    "thumbnail-filename": "drone180x250.jpg",
+    "full-filename": "drone.jpg"
   },
   {
     "name": "Artificial Intelligence Maze Solving Application",
@@ -18,7 +19,8 @@
       "Search Heuristics",
       "File I/O"
     ],
-    "thumbnail-url": "../media/projectThumbnails/aiScreenshot400x300.jpeg"
+    "thumbnail-filename": "aiScreenshot200x150.jpg",
+    "full-filename": "aiScreenshot.jpg"
   },
   {
     "name": "Traffic Sign Recognition System",
@@ -28,7 +30,8 @@
       "Machine learning",
       "Neural Networks with Keras"
     ],
-    "thumbnail-url": ""
+    "thumbnail-filename": "",
+    "full-filename": ""
   },
   {
     "name": "BookOrder Web Application",
@@ -40,6 +43,7 @@
       "HTML/CSS",
       "User accounts and authentication"
     ],
-    "thumbnail-url": ""
+    "thumbnail-filename": "BookOrder260x180.jpg",
+    "full-filename": "BookOrderFull.jpg"
   }
 ]
