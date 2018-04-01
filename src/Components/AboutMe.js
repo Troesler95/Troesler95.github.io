@@ -2,6 +2,8 @@ import React from 'react';
 import ContentSection from './ContentSection';
 import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
+import Tooltip from 'react-bootstrap/lib/Tooltip';
+import OverlayTrigger from 'react-bootstrap/lib/OverlayTrigger';
 
 const AboutMe = () => (
     <ContentSection id="about-me">
@@ -27,8 +29,9 @@ const AboutMe = () => (
             <Col xs={10} xsOffset={1} md={8} mdOffset={2}>
                 <p className="h1">
                     I thoroughly enjoy the process of learning and growing both as a developer and person;
-                    and I love sharing those experiences too! Be sure to check out <a>my blog</a> to
-                    keep up with my latest antics.
+                    and I love sharing those experiences too! Be sure to check out{' '}
+                    <OverlayTrigger overlay={<Tooltip>Coming soon!</Tooltip>} placement="bottom"><a>my blog</a></OverlayTrigger>{' '}
+                    to keep up with my latest antics.
                 </p>
             </Col>
         </Row>

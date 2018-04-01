@@ -11,7 +11,7 @@
     "full-filename": "drone.jpg"
   },
   {
-    "name": "Artificial Intelligence Maze Solving Application",
+    "name": "AI Maze Solving Application",
     "description": "A configurable maze solving CLI application written in C++. This was developed as an assignment for my course in artificial intelligence and was used to explore the concept of search heuristics.",
     "skills": [
       "C++",
