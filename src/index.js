@@ -5,4 +5,5 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
+// Currently unused. Eventually, do your research on progressive web apps
+// registerServiceWorker();

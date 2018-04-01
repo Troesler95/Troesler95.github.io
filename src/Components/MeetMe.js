@@ -8,7 +8,7 @@ const MeetMe = () => (
         <Row>
             <Col xs={12}>
                 <h1>
-                    <Row><Col xs={12} smallHidden={true} mdHidden={true} lgHidden={true}>Hello, I'm </Col></Row>
+                    <Row><Col xs={12} smHidden={true} mdHidden={true} lgHidden={true}>Hello, I'm </Col></Row>
                     <Col xsHidden={true}>Hello, I'm </Col>
                     Tyler Roesler
                 </h1>

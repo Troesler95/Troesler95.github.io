@@ -11,7 +11,7 @@ export class ContentSection extends Component {
         let {className, id, children} = this.props;
         return (
             // add the content-section class to whatever is added at instantiation
-            <div className={(className) ? className += ' content-section container-fluid' : "content-section"}
+            <div className={(className) ? className += ' content-section container-fluid' : "content-section container-fluid"}
                 id={id}>
                 {children}
             </div>

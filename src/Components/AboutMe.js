@@ -28,7 +28,7 @@ const AboutMe = () => (
                 <p className="h1">
                     I thoroughly enjoy the process of learning and growing both as a developer and person;
                     and I love sharing those experiences too! Be sure to check out <a>my blog</a> to
-                    keep up with what I've been up to.
+                    keep up with my latest antics.
                 </p>
             </Col>
         </Row>

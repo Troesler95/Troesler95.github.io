@@ -1,9 +1,9 @@
 #skills {
   // BLUE
-  background: -webkit-linear-gradient(to right, rgba(#2193b0, 0.75) 45%, rgba(#6dd5ed, 0.0)),
+  background: -webkit-linear-gradient(to right, rgba(#2193b0, 0.75) 45%, rgba(#6dd5ed, 0.15)),
   url("../media/backgroundIms/cappuccino.jpeg") no-repeat center center fixed;
   // BLUE
-  background: linear-gradient(to right, rgba(#2193b0, 0.75) 45%, rgba(#6dd5ed, 0.0)),
+  background: linear-gradient(to right, rgba(#2193b0, 0.75) 45%, rgba(#6dd5ed, 0.15)),
   url("../media/backgroundIms/cappuccino.jpeg") no-repeat center center fixed;
 
   -webkit-background-size: cover;
@@ -15,15 +15,16 @@
   color: white;
 
   #skills-cont {
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-flex-flow: row nowrap;
-    flex-flow: row nowrap;
-    justify-content: space-around;
-    align-items: stretch;
+    // display: -webkit-box;
+    // display: -moz-box;
+    // display: -ms-flexbox;
+    // display: -webkit-flex;
+    // display: flex;
+    // -webkit-flex-flow: row nowrap;
+    // flex-flow: row nowrap;
+    // justify-content: space-around;
+    // align-items: stretch;
+    margin: 5%;
 
     .skills-section {
       display: inline-block;
@@ -32,11 +33,12 @@
       line-height: 2.25vw;
       margin: 0 auto;
 
-      &:first-of-type {
-        margin-left: 5%;
-      }
+    //   &:first-of-type {
+    //     margin-left: 5%;
+    //   }
 
       h4 {
+        font-size: 1.95vw;
         font-weight: 700;
         padding-bottom: 12px;
       }

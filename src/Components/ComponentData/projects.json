@@ -1,6 +1,6 @@
 [
   {
-    "name": "Feedback Control Systems for Autonomous Flight Tasks with Drones",
+    "name": "Autonomous Flight Tasks with Drones",
     "description": "Learned about feedback control systems and how they are applied to autonomous drones. Learning was supplemented using MIT's 16.30 Feedback Control Systems online course and the PARROT Rolling Spyder drone",
     "skills": [
       "MATLAB and Simulink",

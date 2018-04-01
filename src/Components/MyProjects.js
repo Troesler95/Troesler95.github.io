@@ -3,7 +3,10 @@ import PropTypes from 'prop-types';
 import ContentSection from './ContentSection';
 import ContentHeader from './ContentHeader';
 import CarouselArrow from './CarouselArrow';
-import Modal from './Modal';
+import ProjectModal from './Modal'; // TODO: replace with bootstrap Modal
+import Image from 'react-bootstrap/lib/Image';
+import Row from 'react-bootstrap/lib/Row';
+import Col from 'react-bootstrap/lib/Col';
 import ProjectsJSON from './ComponentData/projects.json';
 
 class Project extends React.Component{
@@ -18,20 +21,23 @@ class Project extends React.Component{
         const {projectObj} = this.props;
         // dynamically load images from the projectThumbnails
         const projIms = require.context("../media/projectThumbnails", false, /\.jpe?g$/);
-        var thumbName = projectObj["thumbnail-filename"]; // using var for scoping reasons
+        //var thumbName = projectObj["thumbnail-filename"]; // using var for scoping reasons
+        var thumbName = projectObj["full-filename"];
 
         return (
-            <div className="project" onClick={this.clickHandler}>
-                <div className="project-top">
-                    <img src={(thumbName === "") ? thumbName : projIms(`./${thumbName}`, true)}
-                         alt="Project Screenshot"/>
+            <Col md={3}>
+                <div className="project" onClick={this.clickHandler}>
+                    <div className="project-top">
+                        <Image src={(thumbName === "") ? thumbName : projIms(`./${thumbName}`, true)}
+                            alt="Project Screenshot" responsive rounded />
+                    </div>
+                    <div className="project-bottom">
+                        <p className="project-description">
+                            {projectObj["name"]}
+                        </p>
+                    </div>
                 </div>
-                <div className="project-bottom">
-                    <p className="project-description">
-                        {projectObj["name"]}
-                    </p>
-                </div>
-            </div>
+            </Col>
         );
     }
 }
@@ -53,16 +59,23 @@ export default class MyProjects extends Component {
             modalComponent: null, // current modal to be displayed when user selects a project
             modalOpen: false
         };
+        this.closeModal = this.closeModal.bind(this);
     }
     openModal(obj) {
         if (this.state.modalOpen) {
             return new Error("MyProjects ERROR: openModal() called while modal is already considered to be open!");
         } else {
             this.setState({
-                modalComponent: <Modal projObj={obj}/>,
+                modalComponent: <ProjectModal projObj={obj} closeParent={this.closeModal}/>,
                 modalOpen: true
             });
         }
+    }
+    closeModal() {
+        this.setState({
+            modalComponent: null,
+            modalOpen: false
+        });
     }
     render() {
         const {currentProject, projects, modalOpen, modalComponent} = this.state;
@@ -77,7 +90,9 @@ export default class MyProjects extends Component {
                             ? <CarouselArrow arrowType={"left"} onClick={() => {}}/> : null
                     }
                     {/*Display all the projects in state*/}
-                    {projects}
+                    <Row>
+                        {projects}
+                    </Row>
                     {
                         /*If the projects have reached the end, hide the right arrow*/
                         (currentProject < projects.length - 3)

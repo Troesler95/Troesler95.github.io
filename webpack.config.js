@@ -1,5 +1,7 @@
 var webpack = require('webpack');
 var path = require('path');
+var UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var NODE_ENV = "development";
 
 module.exports = {
@@ -10,7 +12,7 @@ module.exports = {
     output: {
         filename: 'bundle.js',
         path: path.resolve(__dirname, 'public/assets/'),
-        publicPath: "/PersonalSite/public/assets/",
+        publicPath: "/public/assets/"
     },
     devtool: (NODE_ENV === "development") ? "inline-source-map" : false,
     module: {
@@ -19,9 +21,11 @@ module.exports = {
             {
                 test: /\.jsx?$/,
                 exclude: /(node_modules)/,
-                loader: 'babel-loader',
-                query: {
-                    presets: ['env', 'react']
+                use: {
+                    loader: 'babel-loader?cacheDirectory=true',
+                    options: {
+                        presets: ['@babel/preset-env', '@babel/preset-react']
+                    }
                 }
             },
             //to support @font-face rule and url() support
@@ -38,6 +42,7 @@ module.exports = {
             {
                 test: /\.(gif|png|jpe?g|svg)$/i,
                 use: [
+                   // 'file-loader', <-- COME BACK TO THIS ANOTHER TIME
                     {
                         loader: 'image-webpack-loader',
                         options: {
@@ -59,26 +64,37 @@ module.exports = {
                 enforce: 'pre'
             },
             // include css files in bundles
-            {
+            /*{
                 test: /\.css$/,
-                use: [
-                    'style-loader',
-                    'css-loader',
-                    //'autoprefixer-loader' <= no Webpack 4 support
-                ]
-            },
-            // include scss files in bundles
+                use: ExtractTextPlugin.extract({
+                    use: ['css-loader'],
+                    fallback: 'style-loader'
+                })
+                // use: [
+                //     'style-loader',
+                //     'css-loader',
+                //     //'autoprefixer-loader' <= no Webpack 4 support
+                // ]
+            },*/
+            // Extract sass into external file
             {
                 test: /\.scss$/,
-                use: [
-                    // creates style nodes from JS strings
-                    "style-loader",
-                    // translates CSS into CommonJS
-                    "css-loader",
-                    // compiles Sass to CSS
-                    "sass-loader",
-                    //"autoprefixer-loader" <= no Webpack 4 support
-                ]
+                use: ExtractTextPlugin.extract({
+                    fallback: "style-loader",
+                    use: [
+                        // creates style nodes from JS strings
+                        // "style-loader",
+                        // translates CSS into CommonJS
+                        "css-loader",
+                        // compiles Sass to CSS
+                        {
+                            loader: "sass-loader",
+                            options: {
+                                "outputStyle": "compressed"
+                            }
+                        }
+                    ]
+                })
             },
             // include SVG images
             {
@@ -97,8 +113,18 @@ module.exports = {
             }
         ]
     },
+    plugins: [
+        // CURRENTLY DOES NOTHING
+        // new UglifyJsPlugin({
+        //     test: /\.jsx?$/,
+        //     exclude: /(node_modules)/,
+        //     cache: true,
+        //     sourceMap: (NODE_ENV === "development")
+        // }),
+        new ExtractTextPlugin("styles.css") // <-- name of output file
+    ],
     mode: NODE_ENV,
-    // resolve file both JavaScript and JSX files
+    // resolve both JavaScript and JSX files
     resolve: {
         extensions: ['.js', '.jsx']
     }
