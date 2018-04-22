@@ -30,6 +30,10 @@
 
 .size-modal {
   width: 66%;
+
+  .modal-content, .modal-body *, .modal-title, .modal-footer {
+    color: black !important;
+  }
 }
 
 .modal-body {

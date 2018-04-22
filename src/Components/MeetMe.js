@@ -17,7 +17,7 @@ const MeetMe = () => (
         </Row>
         <Row>
             <Col xs={12}>
-                <button className="ghost-btn">learn more</button>
+                <button className="ghost-btn" id="lrnBtn">learn more</button>
             </Col>
         </Row>
     </ContentSection>
