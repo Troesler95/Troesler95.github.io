@@ -1,5 +1,6 @@
 #projects {
   @include darkenBackgroundImage("../media/backgroundIms/lightbulb.jpeg", 0.3, 0.3);
+  @include translateImageScrollFix();
   color: white;
 
   #project-carousel {

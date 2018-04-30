@@ -12,7 +12,7 @@ module.exports = {
     output: {
         filename: 'bundle.js',
         path: path.resolve(__dirname, 'public/assets/'),
-        publicPath: "/public/assets/"
+        publicPath: "/assets/"
     },
     devtool: (NODE_ENV === "development") ? "inline-source-map" : false,
     module: {

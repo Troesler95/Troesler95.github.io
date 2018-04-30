@@ -3,16 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@babel/core": "^7.0.0-beta.42",
+    "@babel/core": "^7.0.0-beta.46",
+    "@babel/runtime": "^7.0.0-beta.46",
     "@fortawesome/fontawesome": "^1.1.5",
     "@fortawesome/fontawesome-free-brands": "^5.0.10",
-    "@fortawesome/fontawesome-free-solid": "^5.0.9",
+    "@fortawesome/fontawesome-free-solid": "^5.0.10",
     "@fortawesome/react-fontawesome": "0.0.17",
     "babel-loader": "^8.0.0-beta.2",
     "prop-types": "^15.6.1",
-    "react": "^16.3.0",
+    "react": "^16.3.2",
     "react-bootstrap": "^0.32.1",
-    "react-dom": "^16.3.0",
+    "react-dom": "^16.3.2",
     "react-scripts": "1.0.17"
   },
   "scripts": {
@@ -24,10 +25,12 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.0.0-beta.42",
-    "@babel/preset-react": "^7.0.0-beta.42",
+    "@babel/plugin-transform-runtime": "^7.0.0-beta.46",
+    "@babel/preset-env": "^7.0.0-beta.46",
+    "@babel/preset-react": "^7.0.0-beta.46",
     "autoprefixer-loader": "^3.2.0",
     "babel-cli": "^6.26.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "clean-webpack-plugin": "^0.1.19",
@@ -36,17 +39,17 @@
     "file-loader": "^1.1.11",
     "gh-pages": "^1.1.0",
     "image-webpack-loader": "^4.2.0",
-    "node-sass": "^4.8.3",
+    "node-sass": "^4.9.0",
     "react-svg-loader": "^2.1.0",
     "sass-loader": "^6.0.7",
     "style-loader": "^0.20.3",
-    "uglifyjs-webpack-plugin": "^1.2.4",
+    "uglifyjs-webpack-plugin": "^1.2.5",
     "url-loader": "^1.0.1",
-    "webpack": "^4.4.1",
+    "webpack": "^4.6.0",
     "webpack-bundle-analyzer": "^2.11.1",
-    "webpack-cli": "^2.0.13",
+    "webpack-cli": "^2.0.15",
     "webpack-css-loaders": "^1.0.0",
-    "webpack-dev-server": "^3.1.1"
+    "webpack-dev-server": "^3.1.3"
   },
   "sideEffects": false
 }

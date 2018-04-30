@@ -1,10 +1,12 @@
 #meet-me {
   background: linear-gradient(rgba(0, 0, 0, 0.35) 65%, transparent 100%),
-  url("../media/backgroundIms/starry-night.jpeg") no-repeat center center fixed;
+  url("../media/backgroundIms/starry-night.jpeg") no-repeat center center /*fixed*/;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+
+  @include translateImageScrollFix();
 
   font-weight: 300;
   color: white;

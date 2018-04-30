@@ -29,7 +29,7 @@ class Project extends React.Component{
                 <div className="project" onClick={this.clickHandler}>
                     <div className="project-top">
                         <Image src={(thumbName === "") ? thumbName : projIms(`./${thumbName}`, true)}
-                            alt="Project Screenshot" responsive rounded />
+                            alt="Coming soon!" responsive rounded />
                     </div>
                     <div className="project-bottom">
                         <p className="project-description">
@@ -48,18 +48,23 @@ Project.propTypes = {
 };
 
 export default class MyProjects extends Component {
+
     constructor(props) {
         super(props);
-        //this.openModal = this.openModal.bind(this);
+        
         //set up initial state
         this.state = {
-            projects: ProjectsJSON.map((proj, i) => <Project projectObj={proj} key={i}
-                                                             onProjectClick={this.openModal.bind(this, proj)} />),
-            currentProject: 1, // <- left most project (I think?)
-            modalComponent: null, // current modal to be displayed when user selects a project
+            projects: [],
+            currentProject: 1,
+            modalComponent: null,
             modalOpen: false
-        };
+        }
         this.closeModal = this.closeModal.bind(this);
+    }
+    async getProjectsAsync() {
+        return ProjectsJSON.map(
+            (proj, i) => <Project projectObj={proj} key={i}
+                            onProjectClick={this.openModal.bind(this, proj)} />);
     }
     openModal(obj) {
         if (this.state.modalOpen) {
@@ -77,6 +82,11 @@ export default class MyProjects extends Component {
             modalOpen: false
         });
     }
+    componentDidMount() {
+        this.getProjectsAsync().then(projects => {
+            this.setState({projects: projects});
+        })
+    }
     render() {
         const {currentProject, projects, modalOpen, modalComponent} = this.state;
         return (
@@ -91,7 +101,7 @@ export default class MyProjects extends Component {
                     }
                     {/*Display all the projects in state*/}
                     <Row>
-                        {projects}
+                        {(projects.length === 0) ? "" : projects}
                     </Row>
                     {
                         /*If the projects have reached the end, hide the right arrow*/
