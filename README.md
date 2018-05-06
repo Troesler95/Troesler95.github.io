@@ -13,7 +13,7 @@ This website leverages some of the latest and greatest technologies. Here are a 
 5. [Sass](https://sass-lang.com/)
 
 And of course the [NodeJs](https://nodejs.org/) runtime combined with several amazing Webpack loaders and plugins. 
-See my [webpack.config.js](/troesler95/Troesler95.github.io/tree/ReactRework/webpack.config.js) for more information on how they are used (and pardon the mess).
+See my [webpack.config.js](https://github.com/Troesler95/Troesler95.github.io/blob/ReactRework/webpack.config.js) for more information on how they are used (and pardon the mess).
 It is hosted on (you guessed it) [GitHub Pages](https://pages.github.com/) which makes hosting static webpages free and easy for developers.
 
 The design for this page was done by the lovely and amazing [Rebecca Masiker](http://www.rebeccamasiker.com/). If you like this design or
