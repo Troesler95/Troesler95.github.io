@@ -1,0 +1,20 @@
+/***
+    BP - Set breakpoint with more concise syntax
+    TODO: Play with these values when the actual site is made up
+*/
+@mixin bp($point) {
+  
+    $sm: "(max-width: 600px)";
+    $md: "(max-width: 1250px)";
+    $lg: "(max-width: 1600px)";
+  
+    @if $point == sm {
+      @media #{$sm} { @content; }
+    }
+    @else if $point == md {
+      @media #{$md} { @content; }
+    }
+    @else if $point == lg {
+      @media #{$lg}  { @content; }
+    }
+}

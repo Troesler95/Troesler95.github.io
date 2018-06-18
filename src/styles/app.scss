@@ -1,0 +1,28 @@
+@import 'variables';
+
+// get google fonts
+@import url('https://fonts.googleapis.com/css?family=Halant:300,400,600|Quicksand:300,400,700');
+
+* { font-family: $primary-font; }
+
+// Set up to be able to use responsive text
+html {
+    font-size: $font-size;
+  
+    // Magic:
+    @media (max-width: 1000px) {
+      font-size: calc($font-size + .4vw);
+    }
+}
+
+p { font-family: $secondary-font; }
+
+.vertical-center {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+}
