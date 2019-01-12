@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import FontAwesomeIcon from '@fortawesome/react-fontawesome';
-import faAngleRight from '@fortawesome/fontawesome-free-solid/faAngleRight';
-import faAngleLeft from '@fortawesome/fontawesome-free-solid/faAngleLeft';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleRight } from '@fortawesome/free-solid-svg-icons/faAngleRight';
+import { faAngleLeft } from '@fortawesome/free-solid-svg-icons/faAngleLeft';
 
 const CarousalArrow = ({arrowType, onClick}) => (
     <div className={`arrow-cont arrow-${arrowType} fa-3x vertical-center`} onClick={onClick}>

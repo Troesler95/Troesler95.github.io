@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import FontAwesomeIcon from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Modal from 'react-bootstrap/lib/Modal';
 import Image from 'react-bootstrap/lib/Image';
 import Col from 'react-bootstrap/lib/Col';

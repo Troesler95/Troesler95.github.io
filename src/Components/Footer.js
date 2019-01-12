@@ -5,10 +5,10 @@ import ContentHeader from './ContentHeader';
 import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
 // ****************** FONT AWESOME ****************************
-import FontAwesomeIcon from '@fortawesome/react-fontawesome';
-import faFacebookSquare from '@fortawesome/fontawesome-free-brands/faFacebookSquare';
-import faGithubSquare from '@fortawesome/fontawesome-free-brands/faGithubSquare';
-import faTwitterSquare from '@fortawesome/fontawesome-free-brands/faTwitterSquare';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebookSquare} from '@fortawesome/free-brands-svg-icons/faFacebookSquare';
+import { faGithubSquare } from '@fortawesome/free-brands-svg-icons/faGithubSquare';
+import { faTwitterSquare } from '@fortawesome/free-brands-svg-icons/faTwitterSquare';
 
 const Footer = () => {
     return (

@@ -42,7 +42,7 @@ const MySkills = () => (
                             contentArray={[
                                     "C/C++",
                                     "C#.NET",
-                                    "Pyton",
+                                    "Python",
                                     "MATLAB",
                                     "Ruby"
                             ]}

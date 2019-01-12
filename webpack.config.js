@@ -1,11 +1,15 @@
 var webpack = require('webpack');
-var path = require('path');
-var UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
-var NODE_ENV = "development";
+const path = require('path');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+
+const NODE_ENV = (process.env.production) ? "production" : "development";
 
 module.exports = {
     context: path.resolve(__dirname, 'src'),
+    mode: NODE_ENV,
     entry: [
         './index.js'
     ],
@@ -15,6 +19,9 @@ module.exports = {
         publicPath: "/assets/"
     },
     devtool: (NODE_ENV === "development") ? "inline-source-map" : false,
+    devServer: {
+        contentBase: './public'
+    },
     module: {
         rules: [
             // use babel-loader on .js and .jsx files
@@ -63,38 +70,21 @@ module.exports = {
                 ],
                 enforce: 'pre'
             },
-            // include css files in bundles
-            /*{
-                test: /\.css$/,
-                use: ExtractTextPlugin.extract({
-                    use: ['css-loader'],
-                    fallback: 'style-loader'
-                })
-                // use: [
-                //     'style-loader',
-                //     'css-loader',
-                //     //'autoprefixer-loader' <= no Webpack 4 support
-                // ]
-            },*/
             // Extract sass into external file
+            //NEW
             {
-                test: /\.scss$/,
-                use: ExtractTextPlugin.extract({
-                    fallback: "style-loader",
-                    use: [
-                        // creates style nodes from JS strings
-                        // "style-loader",
-                        // translates CSS into CommonJS
-                        "css-loader",
-                        // compiles Sass to CSS
-                        {
-                            loader: "sass-loader",
-                            options: {
-                                "outputStyle": "compressed"
-                            }
+                test: /\.(sa|sc|c)ss$/,
+                use: [
+                    NODE_ENV !== "production" ? 'style-loader' : MiniCssExtractPlugin.loader,
+                    'css-loader',
+                    'postcss-loader',
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            "outputStyle": "compressed"
                         }
-                    ]
-                })
+                    },
+                ] 
             },
             // include SVG images
             {
@@ -114,16 +104,33 @@ module.exports = {
         ]
     },
     plugins: [
-        // CURRENTLY DOES NOTHING
-        // new UglifyJsPlugin({
-        //     test: /\.jsx?$/,
-        //     exclude: /(node_modules)/,
-        //     cache: true,
-        //     sourceMap: (NODE_ENV === "development")
-        // }),
-        new ExtractTextPlugin("styles.css") // <-- name of output file
+        new MiniCssExtractPlugin({
+            // Options similar to the same options in webpackOptions.output
+            // both options are optional
+            filename: NODE_ENV === "development" ? '[name].css' : '[name].[hash].css',
+            chunkFilename: NODE_ENV === "development" ? '[id].css' : '[id].[hash].css',
+        }),
+        // new ExtractTextPlugin("styles.css") // <-- name of output file
     ],
-    mode: NODE_ENV,
+    optimization: {
+        minimizer: [
+          new UglifyJsPlugin({
+            cache: true,
+            parallel: true,
+            sourceMap: true, // set to true if you want JS source maps
+            uglifyOptions: {
+                output: {
+                  comments: false,
+                },
+            },
+          }),
+          new OptimizeCSSAssetsPlugin({
+            cssProcessorPluginOptions: {
+                preset: ['default', { discardComments: { removeAll: true } }],
+              }
+          })
+        ]
+      },
     // resolve both JavaScript and JSX files
     resolve: {
         extensions: ['.js', '.jsx']

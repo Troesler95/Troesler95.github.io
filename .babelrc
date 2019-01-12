@@ -4,7 +4,6 @@
   ],
   "plugins": [
     ["@babel/transform-runtime", {
-      "polyfill": false,
       "regenerator": true
     }]
   ]
