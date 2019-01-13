@@ -1,17 +1,11 @@
-var webpack = require('webpack');
 const path = require('path');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
-
-
+// const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = env => {
     const NODE_ENV = (env.production) ? "production" : "development";
-    console.log("Value of process.env: " + NODE_ENV);
-    console.log("Value of NODE_ENV: " + NODE_ENV);
-    console.log("Value of env.NODE_ENV: " + env.NODE_ENV);
     
     return {
         context: path.resolve(__dirname, 'src'),
@@ -24,7 +18,7 @@ module.exports = env => {
             path: path.resolve(__dirname, 'public/assets/'),
             publicPath: "/assets/"
         },
-        devtool: (NODE_ENV === "development") ? "inline-source-map" : false,
+        devtool: (env.development) ? "inline-source-map" : false,
         devServer: {
             contentBase: './public'
         },
@@ -81,7 +75,7 @@ module.exports = env => {
                 {
                     test: /\.(sa|sc|c)ss$/,
                     use: [
-                        NODE_ENV !== "production" ? 'style-loader' : MiniCssExtractPlugin.loader,
+                        env.production ? 'style-loader' : MiniCssExtractPlugin.loader,
                         'css-loader',
                         'postcss-loader',
                         {
@@ -90,7 +84,7 @@ module.exports = env => {
                                 "outputStyle": "compressed"
                             }
                         },
-                    ] 
+                    ]
                 },
                 // include SVG images
                 {
@@ -110,32 +104,39 @@ module.exports = env => {
             ]
         },
         plugins: [
+            // TODO: Come back to this once chunks are working...
             new MiniCssExtractPlugin({
                 // Options similar to the same options in webpackOptions.output
                 // both options are optional
-                filename: NODE_ENV === "development" ? '[name].css' : '[name].[hash].css',
-                chunkFilename: NODE_ENV === "development" ? '[id].css' : '[id].[hash].css',
+                // filename: env.development ? '[name].css' : '[name].[hash].css',
+                filename: '[name].css',
+                // chunkFilename: env.development ? '[id].css' : '[id].[hash].css',
+                chunkFilename: '[id].css'
             }),
-            // new ExtractTextPlugin("styles.css") // <-- name of output file
+            // TODO: Come back to this for chunking?
+            //       need to get a template set up
+            // new HtmlWebpackPlugin({
+            //     title: "Tyler Roesler - Software Developer"
+            // }),
         ],
         optimization: {
             minimizer: [
-            new UglifyJsPlugin({
-                cache: true,
-                parallel: true,
-                sourceMap: true, // set to true if you want JS source maps
-                uglifyOptions: {
-                    output: {
-                    comments: false,
+                new UglifyJsPlugin({
+                    cache: true,
+                    parallel: true,
+                    sourceMap: true, // set to true if you want JS source maps
+                    uglifyOptions: {
+                        output: {
+                        comments: false,
+                        },
                     },
-                },
-            }),
-            new OptimizeCSSAssetsPlugin({
-                cssProcessorPluginOptions: {
-                    preset: ['default', { discardComments: { removeAll: true } }],
-                }
-            })
-            ]
+                }),
+                new OptimizeCSSAssetsPlugin({
+                    cssProcessorPluginOptions: {
+                        preset: ['default', { discardComments: { removeAll: true } }],
+                    }
+                })
+            ],
         },
         // resolve both JavaScript and JSX files
         resolve: {

@@ -43,6 +43,7 @@
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "file-loader": "^3.0.1",
     "gh-pages": "^2.0.1",
+    "html-webpack-plugin": "^3.2.0",
     "image-webpack-loader": "^4.6.0",
     "mini-css-extract-plugin": "^0.5.0",
     "node-sass": "^4.11.0",
@@ -62,6 +63,5 @@
     "webpack-cli": "^3.2.1",
     "webpack-css-loaders": "^1.0.0",
     "webpack-dev-server": "^3.1.14"
-  },
-  "sideEffects": false
+  }
 }
