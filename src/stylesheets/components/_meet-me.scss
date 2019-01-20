@@ -12,6 +12,12 @@
   color: white;
   text-align: center;
 
+  // TODO: Fix the mobile site and remove this warning!
+  @media (max-width: 640px) {
+    position: fixed;
+    z-index: 1000000000;
+  }
+
   .row {
     div {
       h1, small {
@@ -45,6 +51,11 @@
       div.hidden-xs {
         display: inline;
       }
+    }
+
+    .alert {
+      position: relative;
+      top: 40vh;
     }
   }
 

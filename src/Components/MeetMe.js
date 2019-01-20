@@ -2,6 +2,7 @@ import React from 'react';
 import ContentSection from "./ContentSection";
 import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
+import Alert from 'react-bootstrap/lib/Alert';
 
 const MeetMe = () => (
     <ContentSection id="meet-me">
@@ -16,8 +17,20 @@ const MeetMe = () => (
             </Col>
         </Row>
         <Row>
-            <Col xs={12}>
+            {/* <Col xs={12}> */}
+            <Col xsHidden={true} smHidden={false}>
+                {/*TODO: add the scrollTo function here instead of at runtime */}
                 <button className="ghost-btn" id="lrnBtn">learn more</button>
+            </Col>
+            <Col xs={12} mdHidden={true} lgHidden={true} smHidden={true}>
+                {/* <h3 className={"construction-notice"}>
+                    Sorr but my mobile site is still under construction. <br />
+                    Be sure to visit next time you're on your computer though!
+                </h3> */}
+                <Alert bsStyle="warning">
+                    Sorry but my mobile site is still under construction. <br />
+                    Be sure to visit next time you're on your computer though!
+                </Alert>
             </Col>
         </Row>
     </ContentSection>

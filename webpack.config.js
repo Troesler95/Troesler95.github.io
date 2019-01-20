@@ -2,25 +2,28 @@ const path = require('path');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
-// const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = env => {
-    const NODE_ENV = (env.production) ? "production" : "development";
-    
     return {
         context: path.resolve(__dirname, 'src'),
-        mode: NODE_ENV,
+        mode: (env.production) ? "production" : "development",
         entry: [
-            './index.js'
+            './index.js',
+            './Scripts/scrollTo.js'
         ],
         output: {
-            filename: 'bundle.js',
+            // OLD
+            // filename: 'bundle.js',
+            //
+            // change to dynamic output for chunking
+            filename: '[name].[contenthash].js',
             path: path.resolve(__dirname, 'public/assets/'),
             publicPath: "/assets/"
         },
         devtool: (env.development) ? "inline-source-map" : false,
         devServer: {
-            contentBase: './public'
+            contentBase: 'public'
         },
         module: {
             rules: [
@@ -113,11 +116,11 @@ module.exports = env => {
                 // chunkFilename: env.development ? '[id].css' : '[id].[hash].css',
                 chunkFilename: '[id].css'
             }),
-            // TODO: Come back to this for chunking?
-            //       need to get a template set up
-            // new HtmlWebpackPlugin({
-            //     title: "Tyler Roesler - Software Developer"
-            // }),
+            new HtmlWebpackPlugin({
+                filename: "../index.html",
+                template: './index.html',
+                minification: (env.development !== null)
+            }),
         ],
         optimization: {
             minimizer: [
@@ -137,6 +140,9 @@ module.exports = env => {
                     }
                 })
             ],
+            splitChunks: {
+                chunks: 'all',
+            },
         },
         // resolve both JavaScript and JSX files
         resolve: {
