@@ -1,4 +1,5 @@
 const fs = require('fs');
+const path = require('path');
 
 // TODO: 1. Add support for more than just scrollTo.js
 //       2. Take advantage of the webpack plugin architecture: https://webpack.js.org/contribute/writing-a-plugin
@@ -7,8 +8,8 @@ module.exports = class CopyScriptsFolderPlugin {
         this.options = options;
     }
     apply(compiler) {
-        var srcPath = path.resolve(__dirname, "src/Scripts/scrollTo.js");
-        var dstPath = path.resolve(__dirname, "public/assets/") + '\\scrollTo.js';
+        var srcPath = path.resolve(__dirname, "..", "src/Scripts/scrollTo.js");
+        var dstPath = path.resolve(__dirname, "..", "public/assets/") + '\\scrollTo.js';
 
         // logging
         console.log(`resolve scrollto: ${srcPath}`);
