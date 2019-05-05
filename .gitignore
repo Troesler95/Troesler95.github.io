@@ -22,3 +22,10 @@ yarn-error.log*
 
 .idea/*
 .vscode/*
+stats.json
+
+# don't track these since they are auto-generated
+public/assets/*.js
+public/assets/*.css
+public/assets/media/*
+public/assets/main.css

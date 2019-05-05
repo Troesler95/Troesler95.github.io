@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import {Component, cloneElement} from 'react';
 import MeetMe from './Components/MeetMe';
 import AboutMe from './Components/AboutMe';
 import MySkills from './Components/MySkills';
@@ -21,7 +21,7 @@ class App extends Component {
                 <MyProjects />,
                 <br id="divider" />,
                 <Footer />
-            ].map((item, index) => React.cloneElement(item, {key: index})) // satisfy need for key in array of elements
+            ].map((item, index) => cloneElement(item, {key: index})) // satisfy need for key in array of elements
         );
     }
 }

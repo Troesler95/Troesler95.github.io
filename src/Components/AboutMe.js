@@ -11,7 +11,7 @@ const AboutMe = () => (
         <Row>
             <Col xs={10} xsOffset={1} md={8} mdOffset={2}>
                 <p className="h1">
-                    <b>I'm a support engineer for Microsoft in Irving, TX with
+                    <b>I'm a Software Engineer for Northrop Grumman in Baltimore, MD with
                         a unique passion for learning and exploring.</b>
                 </p>
             </Col>

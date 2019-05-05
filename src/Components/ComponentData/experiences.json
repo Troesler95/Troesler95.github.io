@@ -1,8 +1,18 @@
 [
   {
+    "company": "Northop Grumman",
+    "title": "Software Engineer",
+    "duration": "March 2019 to Present",
+    "bullet-points": [
+      "Aid in the development of a highly distributed radar system in use on several aircraft in the defense industry for mission intelligence and surveillance",
+      "Primarily work on the front-end UI, utilizing Microsoft’s WPF, to display mission critical information to users in a clear, configurable, and usable manner",
+      "Develop with a mid-size team in an agile environment, keeping user feedback, stories, and requirements at the core of our work"
+    ]
+  },
+  {
     "company": "Microsoft",
     "title": "Support Engineer",
-    "duration": "February 2018 to Present",
+    "duration": "February 2018 to March 2019",
     "bullet-points": [
       "Provide third tier technical support for developers and IT professionals utilizing Microsoft Internet Information Services, ASP.NET, and Azure Bot Services",
       "Engage with high-profile customers to find solutions to unique problems in business critical applications quickly and efficiently",

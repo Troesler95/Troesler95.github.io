@@ -1,13 +1,20 @@
 const path = require('path');
+const webpack = require('webpack');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const DynamicCdnWebpackPlugin = require('dynamic-cdn-webpack-plugin');
+const CopyScriptsFolderPlugin = require('./customPlugins/CopyScriptsFolderPlugin');
 
 module.exports = env => {
-    return {
+    var isProd = env.production ? true : false;
+
+    var config = {
         context: path.resolve(__dirname, 'src'),
-        mode: (env.production) ? "production" : "development",
+        mode: (isProd) ? "production" : "development",
         entry: [
             './index.js',
             './Scripts/scrollTo.js'
@@ -17,13 +24,16 @@ module.exports = env => {
             // filename: 'bundle.js',
             //
             // change to dynamic output for chunking
-            filename: '[name].[contenthash].js',
+            // filename: '[name].[contenthash].js', // <-- errors when sideEffects enabled?
+            filename: '[name].[hash].js',
             path: path.resolve(__dirname, 'public/assets/'),
             publicPath: "/assets/"
         },
-        devtool: (env.development) ? "inline-source-map" : false,
+        devtool: (!isProd) ? "inline-source-map" : false,
         devServer: {
-            contentBase: 'public'
+            // contentBase: 'public',
+            contentBase: path.join(__dirname, 'public'),
+            hot: true,
         },
         module: {
             rules: [
@@ -78,13 +88,19 @@ module.exports = env => {
                 {
                     test: /\.(sa|sc|c)ss$/,
                     use: [
-                        env.production ? 'style-loader' : MiniCssExtractPlugin.loader,
-                        'css-loader',
+                        (isProd) ? 'style-loader' : MiniCssExtractPlugin.loader,
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                sourceMap: (!isProd)
+                            }
+                        },
                         'postcss-loader',
                         {
                             loader: 'sass-loader',
                             options: {
-                                "outputStyle": "compressed"
+                                "outputStyle": "compressed",
+                                sourceMap: (!isProd)
                             }
                         },
                     ]
@@ -119,18 +135,27 @@ module.exports = env => {
             new HtmlWebpackPlugin({
                 filename: "../index.html",
                 template: './index.html',
-                minification: (env.development !== null)
+                minification: (isProd)
             }),
+            new CleanWebpackPlugin(['public/assets/*.js'], {
+                dry: (!isProd),
+                exclude: ['scrollTo.js']
+            }),
+            new webpack.HotModuleReplacementPlugin(),
+            // new BundleAnalyzerPlugin()
+            // copy scrollTo.js into the assets dir
+            new CopyScriptsFolderPlugin({}),
         ],
         optimization: {
             minimizer: [
                 new UglifyJsPlugin({
+                    // include: './src/Scripts/*.js',
                     cache: true,
                     parallel: true,
-                    sourceMap: true, // set to true if you want JS source maps
+                    sourceMap: (!isProd), // set to true if you want JS source maps
                     uglifyOptions: {
                         output: {
-                        comments: false,
+                        comments: !isProd,
                         },
                     },
                 }),
@@ -143,10 +168,25 @@ module.exports = env => {
             splitChunks: {
                 chunks: 'all',
             },
+            usedExports: true,
         },
         // resolve both JavaScript and JSX files
         resolve: {
             extensions: ['.js', '.jsx']
         }
     }
+    if (isProd)
+    {
+        config.plugins.push(new DynamicCdnWebpackPlugin({env: "production"}))
+        console.log("using DynamicCdnWebpackPlugin...");
+    }
+    
+    if(process.argv.find(v => v.includes('webpack-dev-server')))
+    {
+        // remove the clean webpack plugin if we're running the dev server
+        // prevents cleaning a second time (why it do dat?)
+        config.plugins.splice(2, 1);
+    }
+
+    return config;
 };
