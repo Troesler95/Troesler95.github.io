@@ -1,29 +1,27 @@
-const path = require('path');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const path = require('path')
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+
 
 module.exports = env => {
     return {
         context: path.resolve(__dirname, 'src'),
         mode: (env.production) ? "production" : "development",
         entry: [
-            './index.js',
-            './Scripts/scrollTo.js'
+            "./index.js"
         ],
         output: {
-            // OLD
-            // filename: 'bundle.js',
-            //
-            // change to dynamic output for chunking
             filename: '[name].[contenthash].js',
-            path: path.resolve(__dirname, 'public/assets/'),
+            path: path.resolve(__dirname, "public/assets/"),
             publicPath: "/assets/"
         },
         devtool: (env.development) ? "inline-source-map" : false,
         devServer: {
-            contentBase: 'public'
+            index: 'index.html',
+            contentBase: 'public',
+            compress: true,
+            writeToDisk: true
         },
         module: {
             rules: [
@@ -31,12 +29,7 @@ module.exports = env => {
                 {
                     test: /\.jsx?$/,
                     exclude: /(node_modules)/,
-                    use: {
-                        loader: 'babel-loader?cacheDirectory=true',
-                        options: {
-                            presets: ['@babel/preset-env', '@babel/preset-react']
-                        }
-                    }
+                    loader: 'babel-loader?cacheDirectory=true'
                 },
                 //to support @font-face rule and url() support
                 {
@@ -48,48 +41,30 @@ module.exports = env => {
                         fallback: "file-loader"
                     }
                 },
-                // optimize images before being passed to the file loader
-                {
-                    test: /\.(gif|png|jpe?g|svg)$/i,
-                    use: [
-                    // 'file-loader', <-- COME BACK TO THIS ANOTHER TIME
-                        {
-                            loader: 'image-webpack-loader',
-                            options: {
-                                optipng: {
-                                    optimizationLevel: 7
-                                },
-                                pngquant: {
-                                    quality: '65-90',
-                                    speed: 8
-                                },
-                                mozjpeg: {
-                                    progressive: true,
-                                    quality: 60,
-                                    bypassOnDebug: false
-                                }
-                            }
-                        }
-                    ],
-                    enforce: 'pre'
-                },
-                // Extract sass into external file
-                //NEW
                 {
                     test: /\.(sa|sc|c)ss$/,
                     use: [
                         env.production ? 'style-loader' : MiniCssExtractPlugin.loader,
-                        'css-loader',
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                importLoaders: 2
+                            }
+                        },                        
                         'postcss-loader',
                         {
                             loader: 'sass-loader',
                             options: {
-                                "outputStyle": "compressed"
+                                sourceMap: true,
+                                sassOptions: {
+                                    outputStyle: 'compressed'
+                                }
                             }
                         },
                     ]
                 },
                 // include SVG images
+                // OLD
                 {
                     test: /\.svg$/,
                     use: [
@@ -104,6 +79,10 @@ module.exports = env => {
                         }
                     ]
                 }
+                // {
+                //     test: /\.svg$/,
+                //     use: [ '@svgr/webpack' ]
+                // }
             ]
         },
         plugins: [
@@ -121,32 +100,16 @@ module.exports = env => {
                 template: './index.html',
                 minification: (env.development !== null)
             }),
+            new CleanWebpackPlugin({verbose: true}),
         ],
         optimization: {
-            minimizer: [
-                new UglifyJsPlugin({
-                    cache: true,
-                    parallel: true,
-                    sourceMap: true, // set to true if you want JS source maps
-                    uglifyOptions: {
-                        output: {
-                        comments: false,
-                        },
-                    },
-                }),
-                new OptimizeCSSAssetsPlugin({
-                    cssProcessorPluginOptions: {
-                        preset: ['default', { discardComments: { removeAll: true } }],
-                    }
-                })
-            ],
             splitChunks: {
                 chunks: 'all',
-            },
+            }
         },
         // resolve both JavaScript and JSX files
         resolve: {
             extensions: ['.js', '.jsx']
         }
     }
-};
+}
