@@ -2,6 +2,7 @@ const path = require('path')
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const svgToMiniDataURI = require("mini-svg-data-uri");
 
 
 module.exports = env => {
@@ -21,7 +22,8 @@ module.exports = env => {
             index: 'index.html',
             contentBase: 'public',
             compress: true,
-            writeToDisk: true
+            writeToDisk: true,
+            https: true
         },
         module: {
             rules: [
@@ -38,8 +40,28 @@ module.exports = env => {
                     options: {
                         limit: 2*1024, // limit to 2kB
                         name: '[path][name].[ext]',
-                        fallback: "file-loader"
+                        encoding: 'utf8',
+                        fallback: require.resolve("file-loader")
                     }
+                },
+                // svg optimizations
+                {
+                    test: /\.svg$/,
+                    use: [
+                        {
+                            loader: "url-loader",
+                            options: {
+                                limit: 6*1024, // limit to 6kB
+                            name: '[path][name].[ext]',
+                            encoding: 'utf8',
+                            generator: function(content, mimetype, encoding, resourcePath) {
+                                return svgToMiniDataURI(content.toString()) 
+                            },
+                            fallback: require.resolve("file-loader")
+                            }
+                        },
+                        "svgo-loader"
+                    ]
                 },
                 {
                     test: /\.(sa|sc|c)ss$/,
@@ -55,7 +77,7 @@ module.exports = env => {
                         {
                             loader: 'sass-loader',
                             options: {
-                                sourceMap: true,
+                                sourceMap: (env.development !== null),
                                 sassOptions: {
                                     outputStyle: 'compressed'
                                 }
@@ -63,26 +85,6 @@ module.exports = env => {
                         },
                     ]
                 },
-                // include SVG images
-                // OLD
-                {
-                    test: /\.svg$/,
-                    use: [
-                        {
-                            loader: 'babel-loader'
-                        },
-                        {
-                            loader: 'react-svg-loader',
-                            options: {
-                                jsx: true
-                            }
-                        }
-                    ]
-                }
-                // {
-                //     test: /\.svg$/,
-                //     use: [ '@svgr/webpack' ]
-                // }
             ]
         },
         plugins: [

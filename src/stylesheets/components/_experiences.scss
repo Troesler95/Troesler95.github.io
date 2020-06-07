@@ -1,4 +1,22 @@
-.experience-block {
-    display: inline-block;
-    
+#experiences-cont {
+    // TODO: consolidate this
+    h2 {
+        color: white;
+        font-size: 5vw;
+        text-align: center;
+        margin: 10% 0;
+    }
+
+    .logo {
+        display: block;
+        width: 100%;
+        height: 10vh; 
+        padding: 7.5% 7.5% 0 7.5%;
+    }
+
+    .experience-card {
+        color: $text-blue;
+        border-radius: 25px;
+        margin-bottom: 10%;
+    }    
 }

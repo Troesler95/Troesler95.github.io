@@ -2,26 +2,26 @@
     "experiences": [
         {
             "company": "Northrop Grumman",
-            "icon_loc": "northrop_grumman_logo.svg",
-            "title": "Software Engineer II",
+            "icon_name": "northrop_grumman_logo.svg",
+            "job_title": "Software Engineer II",
             "date_string": "mar 2019 - present"
         },
         {
             "company": "Microsoft",
-            "icon_loc": "microsoft_logo.svg",
-            "title": "Support Engineer",
+            "icon_name": "microsoft_logo.svg",
+            "job_title": "Support Engineer",
             "date_string": "feb 2018 - mar 2019"
         },
         {
             "company": "Ortho Clinical Diagnostics",
-            "icon_loc": "ortho_clinical_diagnostics_logo.svg",
-            "title": "Prototype Applications Developer",
+            "icon_name": "ortho_clinical_diagnostics_logo.svg",
+            "job_title": "Prototype Applications Developer",
             "date_string": "summer 2017"
         },
         {
             "company": "The State University of New York at Fredonia",
-            "icon_loc": "fredonia_logo.svg",
-            "title": "Teacher and Student Lab Assistant",
+            "icon_name": "fredonia_logo.svg",
+            "job_title": "Teacher and Student Lab Assistant",
             "date_string": "fall 2017"
         }
     ]
