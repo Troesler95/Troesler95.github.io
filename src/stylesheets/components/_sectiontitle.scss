@@ -1,0 +1,15 @@
+.section-title {
+    h2 {
+        color: $text-blue;
+        font-size: 5vw;
+        text-align: center;
+        margin: 10% 0;
+    }
+
+    @include media-breakpoint-up(md) {
+        h2 {
+            font-size: 4vw;
+            margin: 7.5% 0;
+        }
+    }
+}

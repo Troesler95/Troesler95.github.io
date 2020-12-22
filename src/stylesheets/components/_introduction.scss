@@ -1,6 +1,15 @@
 #terminal-icon {
     // TODO: Avoid this approach. Scale using the viewbox instead.
     padding: 15% 0px;
+    width: 50%;
+}
+
+@include media-breakpoint-up(md) {
+  #terminal-icon {
+    width: 100%;
+    padding: 0;
+    margin: 47.5% 0;
+  }
 }
 
 #intro {
@@ -8,12 +17,25 @@
     margin: 0 0 15% 0;
     white-space: nowrap;
     
-    // TODO: Is using vw for font scaling a good idea?
     h1 {
         font-size: 10vw;
         line-height: 8.33vw;
     }
     small {
         font-size: 3.15vw;
+    }
+}
+
+@include media-breakpoint-up(md) {
+    #intro {
+        margin: 0 5%;
+
+        h1 {
+            font-size: 7vw;
+            line-height: 5.5vw;
+        }
+        small {
+            font-size: 2.1vw;
+        }
     }
 }

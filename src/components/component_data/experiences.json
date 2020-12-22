@@ -4,25 +4,33 @@
             "company": "Northrop Grumman",
             "icon_name": "northrop_grumman_logo.svg",
             "job_title": "Software Engineer II",
-            "date_string": "mar 2019 - present"
+            "date_string": "mar 2019 - present",
+            "description": "My role at Northrop has grown significantly in the relatively short time I've been with the company. I currently lead the development of an enterprise suite of tools for testing various radar systems throughout the company. This poses many unique challenges for development including interfacing with a range of differing external systems, supporting an outdated code base written in unmanaged C++ utilizing Microsoft Foundation Classes, and coordinating the development needs of several teams to deliver impactful changes on schedule. I have been slowly but surely introducing the tool suite to modern development practices by introducing version control, DevSecOps pipelines, and designing the future of the software suite utilizing .NET Core.\nIn addition to my daily responsibilities, Nothrop Grumman has provided me a multitude of great opportunities to further my professional development. I've taken advantage of Scrum and SAFE Agile trainings and classes mentorship programs with Northrop's top talent, programs that teach software best practices to young engineers, and more. Additionally, I've been attending school at The Georgia Institute of Technology to obtain my masters thanks to NG's education assistance program! Lots of learning and growing both in and outside of my work repsonsibilities.",
+            "key_skills": ["C++", "C#", ".NET/.NET Core", "Windows Presentation Foundation", "Networking", "Scrum Agile", "Project Management"]
         },
         {
             "company": "Microsoft",
             "icon_name": "microsoft_logo.svg",
             "job_title": "Support Engineer",
-            "date_string": "feb 2018 - mar 2019"
+            "date_string": "feb 2018 - mar 2019",
+            "description": "As a Support Engineer at Microsoft, I learned many skills I appreciate in my career today. Beyond our customer centric focus, I provided deeply technical guidance and troubleshooting aid to some of the largest corporations in the world. As a Support Engineer on the Developer Support team, I helped developers across the world learn, develop, and troubleshoot issues using the Azure Bot Services and Framework, ASP.NET, Windows SDK, and Microsoft Xamarin mobile development. Because every day presented new challenges, I learned how to think on my feet, express technical information in a clear way, and most importantly how to teach myself just about anything I need to know to get the job done. Combined with the development experience I obtained from looking at customer code and developing solutions for our customers, I attribute these soft skills as the reason for my current success as a Software Engineer.",
+            "key_skills": [".NET/.NET Core", "C#", "Cloud Based Applications", "Mobile Application Development", "Desktop Development"]
         },
         {
             "company": "Ortho Clinical Diagnostics",
             "icon_name": "ortho_clinical_diagnostics_logo.svg",
             "job_title": "Prototype Applications Developer",
-            "date_string": "summer 2017"
+            "date_string": "summer 2017",
+            "description": "My internship at Ortho Clinical Diagnostics was my first real exposure to the world of software development and engineering. I was tasked over the summer with several tasks both involving research and quick development accompanied by intense on the job learning. My summer started off researching and investigating the effectiveness of various image demosaicing techniques when performed on images taken by the system's camera sensor. This involved obtaining comparative statistics against the varoius techniquest and presenting the results as a summer internship expo.\nAfter, I worked on prototyping a new product line for the company so the team could present a working prototype as a proof of concept for further development. This involved numerous different skills I had to pick up on the job, including piecing together components on a breadboard attached to a Raspberry Pi microcontroller, developing a driver program in Python to control the components according to commands delivered to it via ethernet, and developing an interface for the device into an existing Windows Forms application using a Client/Server architecture. I finished my summer by starting the development of a re-designed user interface written in Windows Presentation Foundation to replace the dated Windows Forms UI. This involved learning the WPF framework, the Model-View-View Model architecture, and developing a generic data access layer between the application and a MySQL database. As you can see from the above, I learned an insane amount over that summer, and had a blast doing it!",
+            "key_skills": [".NET Framework", "C#", "Windows Presentation Foundation", "MATLAB", "Image Processing", "Python", "MySQL"]
         },
         {
-            "company": "The State University of New York at Fredonia",
+            "company": "SUNY Fredonia",
             "icon_name": "fredonia_logo.svg",
-            "job_title": "Teacher and Student Lab Assistant",
-            "date_string": "fall 2017"
+            "job_title": "Teacher Assistant",
+            "date_string": "fall 2017",
+            "description": "As a student lab assistant at SUNY Fredonia, I worked shifts montoring the student computer science lab  ensuring the operations continue to run smoothly, the equipment is respected, and likewise answering any questions students may have about how to use the computers or other computer science coursework. This position was a paid and prestigious position only awarded to students who exhibit a mastery of the subject matter taught at SUNY Fredonia. In addition, I was chosen by my professor to be his assistant for Computer Sciene I and II. The responsibilities included being available outside of class hours to answer student questions and meet with them as necessary, help administer tests and assignments, and teach classes as necessary when the professor cannot make a lecture. This position really helped me build my skills in communicating technical information and sharing knowledge with my peers!",
+            "key_skills": ["C++", "Technology Education", "Technology Communication", "Computer Science Fundamentals", "Data Structures"]
         }
     ]
 }

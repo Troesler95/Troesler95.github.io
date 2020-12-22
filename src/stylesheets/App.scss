@@ -1,5 +1,5 @@
 @import './global/all';
-// import Bootstrap mixins
+// import Bootstrap SCSS
 @import "~bootstrap/scss/bootstrap";
 
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
@@ -7,12 +7,18 @@
 
 html {
     // for rem sizing
-    font-size: calc(12px + (40 - 12) * ((100vw - 320px) / (2048 - 320)));
+    font-size: calc(14px + (32 - 14) * ((100vw - 320px) / (2048 - 320)));
 }
 
 body {
     overflow-x: hidden !important;
     font-family: 'Raleway', 'Helvetica', 'Arial', sans-serif;
+}
+
+@include media-breakpoint-up(md) {
+    body{
+        font-size: 0.75rem;
+    }
 }
 
 #root {
