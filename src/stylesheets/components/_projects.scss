@@ -1,0 +1,24 @@
+#projects {
+    padding-bottom: 10%;
+    
+    a {
+        display: block; 
+        width: 100%;
+        :hover {cursor: pointer;}
+    }
+
+    .logo {
+        min-height: 100px;
+        object-fit: cover;
+    }
+
+    .proj-logo {
+        height: auto !important;
+    }
+
+    @include media-breakpoint-up(md) {
+        .logo {
+            height: 250px !important;
+        }
+    }
+}

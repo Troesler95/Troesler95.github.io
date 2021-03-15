@@ -1,0 +1,52 @@
+{
+  "projects": [
+    {
+      "name": "Discord Server Bot",
+      "description": "A fun Discord bot I made to mess with my friends on a personal Discord server. Not only was the subject matter of this project fun, it allowed me to flex my skills creating scalable network-centric client applications. While I could have easily gotten a bot up and running using the existing Discord NuGet package for C# applications, I thought it would be a good learning experience to start from the ground up using only the Discord API documentation for reference.\nThe Discord API is much more complicated than a simple REST API. The API involves authenticating with the API via REST calls, then starting and maintaining a session with the API via websocket. There is a whole host of varing messages the API can return to the client, as well as what it's expecting from the client in specific intervals, formatting, etc...\nThis project was a great exercise for coding client applications that interact with the web, which is becoming more and more prevalent as time goes on. I also used this as an opportunity to take advantage of newer technologies and features such the .NET Core platform, dependency injection features included in .NET Core, the new System.Text.Json namespace in .NET core (to replace the standard Newtonsoft package included in many projects today), and asynchronous programming practices to maintain responsiveness of the client.",
+      "skills": [
+        "C#",
+        ".NET Core",
+        "Network Protocols",
+        "Asynchronous Programming"
+      ],
+      "thumbnail-filename": "discord.svg",
+      "full-filename": "discord.svg"
+    },
+    {
+      "name": "Autonomous Flight",
+      "description": "Learned about feedback control systems and how they are applied to autonomous drones. Learning was supplemented using MIT's 16.30 Feedback Control Systems online course and the PARROT Rolling Spyder drone",
+      "skills": [
+        "MATLAB and Simulink",
+        "Embedded C",
+        "Image Processing",
+        "Object Tracking"
+      ],
+      "thumbnail-filename": "drone.jpg",
+      "full-filename": "drone.jpg"
+    },
+    {
+      "name": "AI Maze Solving",
+      "description": "A configurable maze solving CLI application written in C++. This was developed as an assignment for my course in artificial intelligence and was used to explore the concept of search heuristics.",
+      "skills": [
+        "C++", 
+        "CLI Menus", 
+        "Search Heuristics", 
+        "File I/O"
+      ],
+      "thumbnail-filename": "aiScreenshot.jpg",
+      "full-filename": "aiScreenshot.jpg"
+    },
+    {
+      "name": "Traffic Sign Recognition",
+      "description": "This basic application segments traffic signs from driving scenery and classifies them. This was a final project for my computer vision and machine learning course. This system will likely be updated in the future!",
+      "skills": [
+        "Python",
+        "Machine learning",
+        "Neural Networks with Keras",
+        "Image Processing"
+      ],
+      "thumbnail-filename": "stop-sign.jpg",
+      "full-filename": "stop-sign.jpg"
+    }
+  ]
+}

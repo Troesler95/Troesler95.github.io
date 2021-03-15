@@ -1,0 +1,33 @@
+{
+    "desktop": {
+        "icon_name": "desktop",
+        "title": "Desktop Development",
+        "skills": [
+            "Desktop GUI Frameworks (WPF, UWP, WCF, QT)",
+            ".Net Framework Development",
+            "UI/UX Focused",
+            "Application Performance",
+            "Application Configuration and Reuse"
+        ]
+    },
+    "cloud": {
+        "icon_name": "cloud",
+        "title": "Web and Cloud Development",
+        "skills": [
+            ".NET Core Development",
+            "ASP.NET Framework",
+            "Front-End Web Development",
+            "Network Protocols"
+        ]
+    },
+    "ai": {
+        "icon_name": "robot",
+        "title": "AI and ML",
+        "skills": [
+            "Computer Vision Techniques",
+            "Object Recognition and Classification",
+            "Building/Training Learning Models",
+            "Heuristics/Goal Maximization"
+        ]
+    }
+}

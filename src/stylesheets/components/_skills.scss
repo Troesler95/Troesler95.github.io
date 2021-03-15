@@ -1,0 +1,18 @@
+#skills {
+    background-color: white;
+    padding-bottom: 10%;
+
+
+    .skill-section {
+        svg {
+            display: block;
+            margin: auto;
+            margin-bottom: 2rem;
+            color: $text-blue;
+        }
+
+        li::marker {
+            color: $text-blue;
+        }
+    }    
+}

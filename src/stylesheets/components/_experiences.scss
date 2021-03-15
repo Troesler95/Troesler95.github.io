@@ -1,24 +1,31 @@
 #experiences-cont {
+    padding-bottom: 10%;
 
-    padding: 0 0 10% 0;
-
-    .logo {
-        //background-color: rgba(0,0,0,0.03);
-        height: 100px;
-        padding: 0 0.75vw;
-    }
-
-    .card-footer {
-        background-color: white;
-        border: none;
-    }
-
-    @include media-breakpoint-up(md) {
-        .logo {
-            margin-top: 7.5%;
-        }
+    a:hover { 
+        cursor: pointer;
     }
 } 
+
+.logo {
+    //background-color: rgba(0,0,0,0.03);
+    height: 100px;
+    padding: 0 0.75vw;
+}
+
+.card-footer {
+    background-color: white;
+    border: none;
+
+    button {
+        font-size: 0.95rem;
+    }
+}
+
+@include media-breakpoint-up(md) {
+    .logo {
+        margin-top: 7.5%;
+    }
+}
 
 @include media-breakpoint-up(md) {
     #experiences-cont {

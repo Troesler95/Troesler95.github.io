@@ -1,88 +1,84 @@
 import React, {Component} from 'react';
-import ExperiencesJSON from './component_data/experiences.json';
-import Experience from './Experience';
+import ProjectsJSON from './component_data/projects.json';
+import Project from './Project';
 import SectionTitle from './SectionTitle';
 import SiteModal from './SiteModal';
 import { Row, Col, Image } from 'react-bootstrap';
 
-function ExperienceDisplay(props) {
-    let { experienceObj } = props;
-    const logosDir = require.context("../media/company_logos", false, /\.svg?/);
-    const LogoSvg = logosDir(`./${experienceObj["icon_name"]}`).default
+function ProjectDisplay(props) {
+    let { projectObj } = props;
+    const logosDir = require.context("../media/project_thumbnails", false, /\.(jpe?g|png|svg)?/);
+    const LogoSvg = logosDir(`./${projectObj["full-filename"]}`).default;
     return <>
         <Row>
             <Col xs={{span: 10, offset: 1}}>
-                <Image src={LogoSvg} className={"modal-img"} fluid/>
+                <Image src={LogoSvg} className="modal-img" fluid />
             </Col>
         </Row>
         <Row>
             <Col xs={{span: 10, offset: 1}}>
-                <h2 className={"modal-job-title"}>{experienceObj["job_title"]}</h2>
+                <h2 className={"modal-job-title"}>{projectObj["name"]}</h2>
             </Col>
         </Row>
         <Row>
             <Col xs={{span: 10, offset: 1}}>
-                <h4 className={"modal-job-date"}>{experienceObj["date_string"].toUpperCase()}</h4>
-            </Col>
-        </Row>
-        <Row>
-            <Col xs={{span: 10, offset: 1}}>
-                {experienceObj["description"].split("\n").map((str, i) => <p key={i} className={"modal-job-description"}>{str}</p>)}
+                {projectObj["description"].split("\n").map((str, i) => <p key={i} className={"modal-job-description"}>{str}</p>)}
             </Col>
         </Row>
         <Row><Col xs={{span: 10, offset: 1}}><h4 className={"modal-title-key-skills"}>Key Skills</h4></Col></Row>
         <Row>
             <Col xs={{span: 10, offset: 1}}>
                 <ul>
-                    {experienceObj["key_skills"].map((skill, i) => <li key={i} className={"modal-skill-item"}>{skill}</li>)}
+                    {projectObj["skills"].map((skill, i) => <li key={i} className={"modal-skill-item"}>{skill}</li>)}
                 </ul>
             </Col>
         </Row>
     </>;
 }
 
-class Experiences extends Component {
+// TODO: figure out how to repeat less code between this and experiences
+class Projects extends Component {
     constructor(props) {
         super(props)
-
+        
         this.state = {
             modalOpen: false,
-            experienceObj: null
+            projectObj: null
         };
-        
+
         this.handleModalClose = this.handleModalClose.bind(this);
-        this.handleModalOpen = this.handleModalOpen.bind(this);
+        this.handleOpenModal = this.handleOpenModal.bind(this);
 
         // parse JSON into experience components
-        this.experiences = ExperiencesJSON.experiences.map((exp, i) => 
-            <Experience experienceObj={exp} key={i} onOpenModal={this.handleModalOpen}/>
+        this.projects = ProjectsJSON.projects.map((exp, i) => 
+            <Project projectObj={exp} key={i} onOpenModal={this.handleOpenModal}/>
         );
     }
 
     handleModalClose() {
-        this.setState({modalOpen: false, experienceObj: null});
+        this.setState({modalOpen: false, projectObj: null});
     }
 
-    handleModalOpen(expObj) {
-        this.setState({modalOpen: true, experienceObj: expObj});
+    handleOpenModal(projObj) {
+        this.setState({modalOpen: true, projectObj: projObj});
     }
 
     render() {
-        return <div id="experiences-cont">
+        return <div id="projects">
             <Row>
-                <SectionTitle color="white">WHERE I'VE WORKED</SectionTitle>
+                <SectionTitle color="white">WHAT I'M UP TO</SectionTitle>
             </Row>
             <Row>
                 <Col md={{span: 10, offset: 1}}>
                     <Row>
-                        {this.experiences.map((exp, i) => {
+                        {this.projects.map((proj, i) => {
                             return <>
                                 {i % 2 != 0 ? null : <div className={"w-100 d-none d-sm-block d-md-none"} />}
                                 <Col xs={{span: 10, offset: 1}} 
                                      sm={{span: 5, offset: (i % 2 == 0 ? 1 : 0)}} 
                                      md={{span: 3, offset: 0}} key={i} 
                                      className={"d-flex align-items-stretch"}>
-                                    {React.cloneElement(exp, {key: i})}
+                                    {React.cloneElement(proj, {key: i})}
                                 </Col>
                             </>
                         })}
@@ -92,7 +88,7 @@ class Experiences extends Component {
             {
             this.state.modalOpen ? 
                 <SiteModal onClose={this.handleModalClose} size={"lg"}>
-                    <ExperienceDisplay experienceObj={this.state.experienceObj}/>
+                    <ProjectDisplay projectObj={this.state.projectObj}/>
                 </SiteModal>
                 : null
             }
@@ -100,4 +96,4 @@ class Experiences extends Component {
     }
 }
 
-export default Experiences;
+export default Projects;

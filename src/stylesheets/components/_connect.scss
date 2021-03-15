@@ -1,0 +1,29 @@
+#connect {
+    background: white;
+    padding-bottom: 10%;
+
+    .icons-cont {
+        height: 10vh;
+        width:  90vw;
+        margin: auto;
+
+        svg {
+            // 100% of parent
+            width: 100%;
+        }
+
+        .desktop-social-icon {
+            display: none;
+        }
+    }
+}
+
+@include media-breakpoint-up(md) {
+    .mobile-social-icon {
+        display: none;
+    }
+
+    .desktop-social-icon {
+        display: inline-block !important;
+    }
+} 

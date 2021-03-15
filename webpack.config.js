@@ -23,7 +23,7 @@ module.exports = env => {
             contentBase: 'public',
             compress: true,
             writeToDisk: true,
-            https: true
+            https: false
         },
         module: {
             rules: [
