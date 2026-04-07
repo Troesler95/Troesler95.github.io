@@ -1,0 +1,443 @@
+:root {
+    /* "Vernal Equinox" Swatch Sequence */
+    --color-p1: #F8F9FA;    /* Morning Frost (Pantone 11-4001) */
+    --color-p2: #B5D99C;    /* Fresh Mint (Pantone 13-0220) */
+    --color-p3: #60A3D9;    /* Clear Cerulean (Pantone 15-4020) */
+    --color-p4: #2A4B7C;    /* Deep Ocean (Pantone 19-4035) */
+    
+    --color-text-dark: #2A4B7C; /* Ocean structural text */
+    --color-text-light: #F8F9FA; /* Morning Frost text */
+    --color-accent-gold: #c98c56; /* Soft sunset gold for accents */
+    
+    /* Fraunces brings immense organic life and warmth via serifs */
+    --font-serif: 'Fraunces', serif;
+    /* Manrope brings extreme structural architectural precision */
+    --font-sans: 'Manrope', sans-serif;
+}
+
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    background-color: var(--color-p4);
+    color: var(--color-text-dark);
+    font-family: var(--font-sans);
+    font-weight: 400;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Background utilities mapped to the Swatches */
+.bg-c1 { background-color: var(--color-p1); color: var(--color-text-dark); }
+.bg-c2 { background-color: var(--color-p2); color: var(--color-text-dark); }
+.bg-c3 { background-color: var(--color-p3); color: var(--color-text-light); }
+.bg-c4 { background-color: var(--color-p4); color: var(--color-text-light); }
+
+.text-light { color: var(--color-text-light) !important; }
+.text-dark  { color: var(--color-text-dark) !important; }
+
+/* The Stacking Engine */
+.stacking-container {
+    position: relative;
+}
+
+.panel {
+    /* The native stacking mechanic */
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    /* Soft shadow to enhance the "paint swatch sliding over" illusion */
+    box-shadow: 0 -15px 40px rgba(0,0,0,0.15);
+    will-change: transform;
+}
+
+.panel-inner {
+    width: 100%;
+    height: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 5vh 5vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+/* Graphic Design Appreciation Layer: The Swatch Tags */
+.swatch-meta {
+    position: absolute;
+    bottom: 3rem; right: 5vw;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    font-family: var(--font-sans);
+    letter-spacing: 1px;
+    opacity: 0.5;
+}
+
+.swatch-id {
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.swatch-name {
+    font-family: var(--font-serif);
+    font-size: 0.95rem;
+    font-style: italic;
+    opacity: 0.8;
+}
+
+/* Typography globals */
+.elegant-title {
+    font-family: var(--font-sans);
+    font-weight: 400;
+    font-size: clamp(3.5rem, 9vw, 8rem);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+}
+
+.serif-italic {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: -0.02em; /* Fraunces looks stunning tight */
+}
+
+.style-accent {
+    color: var(--color-accent-gold);
+}
+
+.chapter-num {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    font-style: italic;
+    opacity: 0.6;
+    display: block;
+    margin-bottom: 1.5rem;
+}
+
+.section-title {
+    font-family: var(--font-sans);
+    font-weight: 500;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+    margin-bottom: 3rem;
+}
+
+/* PANEL 1: HERO */
+.top-nav {
+    position: absolute;
+    top: 0; left: 0; width: 100%;
+    padding: 3rem 5vw;
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.nav-logo {
+    font-family: var(--font-serif);
+    font-size: 1.6rem;
+    font-weight: 500;
+    letter-spacing: -0.5px;
+}
+
+.hero-content {
+    margin-top: 5vh;
+}
+
+.hero-bio {
+    margin-top: 5rem;
+    max-width: 500px;
+}
+
+.hero-bio p {
+    font-family: var(--font-serif); /* Organic bio text */
+    font-size: 1.35rem;
+    font-weight: 300;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+.fine-line {
+    width: 60px;
+    height: 1px;
+    background-color: currentColor;
+    margin: 2rem 0;
+    opacity: 0.3;
+}
+
+.bio-meta {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+    opacity: 0.6;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 3rem; left: 5vw;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: 0.6;
+}
+
+.scroll-line {
+    width: 1px;
+    height: 40px;
+    background: currentColor;
+}
+
+/* PANEL 2: SKILLS */
+.split-layout {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 10vw;
+}
+
+.split-left {
+    flex: 1;
+}
+
+.split-right {
+    flex: 1.5;
+    display: flex;
+    flex-direction: column;
+}
+
+.matrix-row {
+    border-top: 1px solid rgba(255,255,255,0.15);
+    padding: 2.5rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.matrix-row:last-child {
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+
+.matrix-row h3 {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 1.1rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.matrix-row p {
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    font-weight: 300;
+    opacity: 0.9;
+}
+
+/* PANEL 3: EXPERIENCE */
+.header-line {
+    display: flex;
+    align-items: baseline;
+    gap: 2rem;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+    padding-bottom: 2rem;
+    margin-bottom: 4rem;
+}
+
+.header-line .chapter-num { margin: 0; }
+.header-line .section-title { margin: 0; }
+
+.timeline-container {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 5vh;
+}
+
+.timeline-row {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 4rem;
+    padding: 3rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.timeline-row:last-child {
+    border-bottom: none;
+}
+
+.time-range {
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    opacity: 0.7;
+}
+
+.timeline-content .company {
+    font-family: var(--font-sans);
+    font-size: 1.8rem;
+    font-weight: 500;
+    line-height: 1;
+    margin-bottom: 0.4rem;
+    letter-spacing: -0.5px;
+}
+
+.timeline-content .role {
+    font-family: var(--font-serif);
+    font-size: 1.4rem;
+    color: #e4c4be; /* Soft terracotta reflection */
+    margin-bottom: 1.5rem;
+}
+
+.timeline-content p {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    max-width: 650px;
+    opacity: 0.85;
+}
+
+/* PANEL 4: ACADEMICS & FOOTER */
+.footer-layout {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.edu-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    margin-top: 3rem;
+}
+
+.edu-list li {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.edu-school {
+    font-family: var(--font-sans);
+    font-size: 1.35rem;
+    font-weight: 500;
+}
+
+.edu-degree {
+    font-family: var(--font-serif);
+    font-size: 1.4rem;
+    opacity: 0.7;
+}
+
+.final-cta {
+    text-align: right;
+}
+
+.cta-links {
+    display: flex;
+    gap: 3rem;
+    justify-content: flex-end;
+    margin-top: 3rem;
+}
+
+.chic-link {
+    font-family: var(--font-sans);
+    color: currentColor;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    position: relative;
+    padding-bottom: 4px;
+}
+
+.chic-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 0%;
+    height: 1px;
+    background-color: currentColor;
+    transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.chic-link:hover::after {
+    width: 100%;
+}
+
+/* High-End Editorial Art Integration */
+.editorial-art {
+    position: absolute;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.editorial-art img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+}
+
+/* Panel 1 (Alabaster): Background is light, use multiply to strip white backing */
+.art-p1 {
+    right: 5vw;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 80vh;
+    mix-blend-mode: multiply;
+    opacity: 0.85;
+}
+
+/* Panel 2 (Terra Cotta): Background is warm mid-tone, use multiply */
+.art-p2 {
+    left: -5vw;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 90vh;
+    mix-blend-mode: multiply;
+    opacity: 0.6;
+}
+
+/* Panel 3 (Bordeaux): Background is dark, use screen or lighten to strip black backing */
+.art-p3 {
+    right: -5vw;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 85vh;
+    mix-blend-mode: screen;
+    opacity: 0.7;
+}
+
+/* Panel 4 (Truffle): Background is black, use screen */
+.art-p4 {
+    left: 10vw;
+    top: -10vh;
+    height: 90vh;
+    mix-blend-mode: multiply;
+    opacity: 0.85;
+}
+
+/* Responsive Overrides */
+@media (max-width: 1024px) {
+    .editorial-art { display: none; } /* Hide massive sculptures on small mobiles */
+    .split-layout { flex-direction: column; align-items: flex-start; gap: 4rem; }
+    .footer-layout { flex-direction: column; align-items: flex-start; gap: 6rem; }
+    .final-cta { text-align: left; }
+    .cta-links { justify-content: flex-start; }
+    .timeline-row { grid-template-columns: 1fr; gap: 1rem; padding: 2rem 0; }
+    .swatch-meta { display: none; } /* Hide the tiny metadata tags on mobile */
+    .panel { height: auto; min-height: 100vh; position: relative; }
+}
