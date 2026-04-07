@@ -435,7 +435,16 @@ body {
 
 /* Responsive Overrides */
 @media (max-width: 1024px) {
-    .editorial-art { display: none; } /* Hide massive sculptures on small mobiles */
+    .editorial-art { 
+        display: block; /* Bring back the art for mobile */
+        left: 50% !important;
+        right: auto !important;
+        top: 50% !important;
+        bottom: auto !important;
+        transform: translate(-50%, -50%) !important;
+        height: 80vh !important; /* Anchor it to a modest vertical weight relative to screen */
+        opacity: 0.15 !important; /* Soften natively to ensure all text remains universally legible */
+    } 
     .split-layout { flex-direction: column; align-items: flex-start; gap: 4rem; }
     .footer-layout { flex-direction: column; align-items: flex-start; gap: 6rem; }
     .final-cta { text-align: left; }
@@ -446,7 +455,7 @@ body {
         position: relative; 
         height: auto; 
         min-height: 100vh; 
-        overflow: visible; 
+        overflow: hidden; /* Safely trap art bounds since height is now fully auto-expanding */
     } 
     .panel-inner {
         height: auto;
