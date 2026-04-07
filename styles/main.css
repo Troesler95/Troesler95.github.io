@@ -442,5 +442,14 @@ body {
     .cta-links { justify-content: flex-start; }
     .timeline-row { grid-template-columns: 1fr; gap: 1rem; padding: 2rem 0; }
     .swatch-meta { display: none; } /* Hide the tiny metadata tags on mobile */
-    .panel { position: relative; } /* Standard flow for mobile */
+    .panel { 
+        position: relative; 
+        height: auto; 
+        min-height: 100vh; 
+        overflow: visible; 
+    } 
+    .panel-inner {
+        height: auto;
+        padding: 12vh 5vw 15vh 5vw; /* give extra padding at the bottom for scroll comfort */
+    }
 }
